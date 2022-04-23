@@ -8,10 +8,7 @@
 import MetalKit
 
 class GameViewCoordinator: NSObject, MTKViewDelegate {
-	struct Vertex {
-		var position: simd_float3
-		var color: simd_float4
-	}
+	
 	var parent: MetalView
 	var device: MTLDevice!
 	var commandQueue: MTLCommandQueue!
@@ -53,7 +50,7 @@ class GameViewCoordinator: NSObject, MTKViewDelegate {
 		]
 	}
 	func createBuffers(){
-		vertexBuffer = device.makeBuffer(bytes: vertices, length: MemoryLayout<Vertex>.stride * vertices.count)
+		vertexBuffer = device.makeBuffer(bytes: vertices, length: Vertex.stride(vertices.count) )
 	}
 	
 	func createRenderPipelineState(){
@@ -61,11 +58,25 @@ class GameViewCoordinator: NSObject, MTKViewDelegate {
 		let vertexFunction = library?.makeFunction(name: "basic_vertex_shader")
 		let fragmentFunction = library?.makeFunction(name: "basic_fragment_shader")
 		
+		let vertexDescriptor = MTLVertexDescriptor()
+			
+		// position
+		vertexDescriptor.attributes[0].format = .float3
+		vertexDescriptor.attributes[0].bufferIndex = 0
+		vertexDescriptor.attributes[0].offset = 0
+		
+		// color
+		vertexDescriptor.attributes[1].format = .float4
+		vertexDescriptor.attributes[1].bufferIndex = 0
+		vertexDescriptor.attributes[1].offset = simd_float3.size()
+		
+		vertexDescriptor.layouts[0].stride = Vertex.stride()
+		
 		let renderPipeLineDescriptor = MTLRenderPipelineDescriptor()
 		renderPipeLineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
-		
 		renderPipeLineDescriptor.vertexFunction = vertexFunction
 		renderPipeLineDescriptor.fragmentFunction = fragmentFunction
+		renderPipeLineDescriptor.vertexDescriptor = vertexDescriptor
 		do{
 			renderPipelineState = try device.makeRenderPipelineState(descriptor: renderPipeLineDescriptor)
 		}catch let error as NSError {
