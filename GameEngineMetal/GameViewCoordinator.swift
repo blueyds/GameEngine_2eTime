@@ -16,6 +16,13 @@ class GameViewCoordinator: NSObject, MTKViewDelegate {
 	//var clearColor: MTLClearColor
 	var colorPixelFormat: MTLPixelFormat
 	
+	let vertices: [simd_float3] = [
+		simd_float3(0.0, 1.0, 0.0), // TOP LEFT Vertex
+		simd_float3(-1.0, -1.0, 0.0), // BOTTOM LEFT Vertex
+		simd_float3(1.0, -1.0, 0.0) // BOTTOM RIGHT Vertex
+	]
+	var vertexBuffer: MTLBuffer!
+	
 	init (_ parent: MetalView){
 		
 		self.parent = parent
@@ -33,11 +40,17 @@ class GameViewCoordinator: NSObject, MTKViewDelegate {
 		super.init()
 		
 		createRenderPipelineState()
+		
+		createBuffers()
+	}
+	
+	func createBuffers(){
+		vertexBuffer = device.makeBuffer(bytes: vertices, length: MemoryLayout<simd_float3>.stride * vertices.count)
 	}
 	
 	func createRenderPipelineState(){
 		let library = device.makeDefaultLibrary()
-		let vertexFunction = library?.makeFunction(name: "basic_vertex_function")
+		let vertexFunction = library?.makeFunction(name: "basic_vertex_shader")
 		let fragmentFunction = library?.makeFunction(name: "basic_fragment_shader")
 		
 		let renderPipeLineDescriptor = MTLRenderPipelineDescriptor()
@@ -59,14 +72,16 @@ class GameViewCoordinator: NSObject, MTKViewDelegate {
 		
 	func draw(in view: MTKView) {
 		guard let drawable = view.currentDrawable, let renderPassDescriptor = view.currentRenderPassDescriptor else { return}
-			let commandBuffer = commandQueue.makeCommandBuffer()
-				let renderCommandEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: renderPassDescriptor)
-			renderCommandEncoder?.setRenderPipelineState(renderPipelineState)
-			
-			// send info to rendering commander
-			
-			renderCommandEncoder?.endEncoding()
-			commandBuffer?.present(drawable)
-			commandBuffer?.commit()
-		}
+		let commandBuffer = commandQueue.makeCommandBuffer()
+		let renderCommandEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: renderPassDescriptor)
+		renderCommandEncoder?.setRenderPipelineState(renderPipelineState)
+		
+		// send info to rendering commander
+		renderCommandEncoder?.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
+		renderCommandEncoder?.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: vertices.count)
+		
+		renderCommandEncoder?.endEncoding()
+		commandBuffer?.present(drawable)
+		commandBuffer?.commit()
+	}
 }
