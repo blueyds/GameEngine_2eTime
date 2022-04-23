@@ -8,7 +8,10 @@
 import MetalKit
 
 class GameViewCoordinator: NSObject, MTKViewDelegate {
-	
+	struct Vertex {
+		var position: simd_float3
+		var color: simd_float4
+	}
 	var parent: MetalView
 	var device: MTLDevice!
 	var commandQueue: MTLCommandQueue!
@@ -16,11 +19,8 @@ class GameViewCoordinator: NSObject, MTKViewDelegate {
 	//var clearColor: MTLClearColor
 	var colorPixelFormat: MTLPixelFormat
 	
-	let vertices: [simd_float3] = [
-		simd_float3(0.0, 1.0, 0.0), // TOP LEFT Vertex
-		simd_float3(-1.0, -1.0, 0.0), // BOTTOM LEFT Vertex
-		simd_float3(1.0, -1.0, 0.0) // BOTTOM RIGHT Vertex
-	]
+	var vertices: [Vertex]!
+	
 	var vertexBuffer: MTLBuffer!
 	
 	init (_ parent: MetalView){
@@ -41,11 +41,19 @@ class GameViewCoordinator: NSObject, MTKViewDelegate {
 		
 		createRenderPipelineState()
 		
+		createVertices()
+		
 		createBuffers()
 	}
-	
+	func createVertices() {
+		vertices = [
+			Vertex(position: simd_float3(0,1,0), color: simd_float4(1,0,0,1)),
+			Vertex(position: simd_float3(-1,-1,0), color: simd_float4(0,1,0,1)),
+			Vertex(position: simd_float3(1,-1,0), color: simd_float4(0,0,1,1))
+		]
+	}
 	func createBuffers(){
-		vertexBuffer = device.makeBuffer(bytes: vertices, length: MemoryLayout<simd_float3>.stride * vertices.count)
+		vertexBuffer = device.makeBuffer(bytes: vertices, length: MemoryLayout<Vertex>.stride * vertices.count)
 	}
 	
 	func createRenderPipelineState(){

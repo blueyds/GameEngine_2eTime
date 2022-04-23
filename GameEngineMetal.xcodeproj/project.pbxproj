@@ -104,7 +104,7 @@
 		D10E61D528123E7600EDC156 /* GameEngineMetal */ = {
 			isa = PBXGroup;
 			children = (
-				D10E61D628123E7600EDC156 /* GameEngineMetalApp.swift */,
+				D144F730281462E1009EBD0D /* Other */,
 				D10E61D828123E7600EDC156 /* ContentView.swift */,
 				D10E61DA28123E7B00EDC156 /* Assets.xcassets */,
 				D10E61DF28123E7B00EDC156 /* GameEngineMetal.entitlements */,
@@ -140,6 +140,14 @@
 				D10E61F428123E7B00EDC156 /* GameEngineMetalUITestsLaunchTests.swift */,
 			);
 			path = GameEngineMetalUITests;
+			sourceTree = "<group>";
+		};
+		D144F730281462E1009EBD0D /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				D10E61D628123E7600EDC156 /* GameEngineMetalApp.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
