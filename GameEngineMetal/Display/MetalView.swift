@@ -18,16 +18,16 @@ struct MetalView: NSViewRepresentable{
 	
 	func makeNSView(context: Context) -> NSViewType {
 		let mtkView = NSViewType()
-				mtkView.delegate = context.coordinator
-				mtkView.preferredFramesPerSecond = 60
-				mtkView.enableSetNeedsDisplay = false
-				if let metalDevice = MTLCreateSystemDefaultDevice() {
-					mtkView.device = metalDevice
-				}
-				mtkView.framebufferOnly = false
-				mtkView.clearColor = MTLClearColor(red: 0, green: 255, blue: 0, alpha: 0)
-				mtkView.drawableSize = mtkView.frame.size
-				return mtkView
+		mtkView.delegate = context.coordinator
+		mtkView.preferredFramesPerSecond = preferences.framesPerSEcond
+		mtkView.enableSetNeedsDisplay = false
+		mtkView.isPaused = false
+		mtkView.device = engine.device
+		
+		mtkView.framebufferOnly = false
+		mtkView.clearColor = preferences.clearColor
+		mtkView.drawableSize = mtkView.frame.size
+		return mtkView
 	}
 	func updateNSView(_ nsView: NSViewType, context: Context) {
 		
