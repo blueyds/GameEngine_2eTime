@@ -9,31 +9,29 @@ import MetalKit
 
 
 class VertexDescriptorLibrary {
-	enum VertexDescriptorTypes {
+	enum Types {
 		case Basic
 	}
 
-	private var vertexDescriptors: [VertexDescriptorTypes: VertexDescriptor] = [:]
+	private var vertexDescriptors: [Types: VertexDescriptor] = [:]
 	init () {
 		createDefaultVertexDescriptors()
 	}
 	private func createDefaultVertexDescriptors(){
 		createBasic()
 	}
-	func descriptor(_ vertexDescriptorType: VertexDescriptorTypes) -> MTLVertexDescriptor {
+	func descriptor(_ vertexDescriptorType: Types) -> MTLVertexDescriptor {
 		vertexDescriptors[vertexDescriptorType]!.vertexDescriptor
 	}
 	private func createBasic(){
-		let basic = MTLVertexDescriptor()
+		let basic = VertexDescriptor(name: "Basic Vertex Descriptor")
 		// position attributes
-		basic.addAttributes(position: 0, format: .float3, offset: 0, bufferIndex: 0)
+		basic.addAttribute(position: 0, format: .float3, offset: 0, bufferIndex: 0)
 		// color attributes
-		basic.addAttributes(position: 1, format: .float4, offset: simd_float3.size, bufferIndez: 0)
+		basic.addAttribute(position: 1, format: .float4, offset: simd_float3.size(), bufferIndex: 0)
 		// layout
-		basic.addLayout(stride = Vertex.stride())
-		vertexDescriptors.updateValue(
-			VertexDescriptor(name: "Basic Vertex Descriptor",
-							 vertexDescriptor: basic), forKey: .Basic)
+		basic.addLayout(stride: Vertex.stride())
+		vertexDescriptors.updateValue(basic, forKey: .Basic)
 	}
 }
 
@@ -49,7 +47,7 @@ class VertexDescriptor {
 		vertexDescriptor = MTLVertexDescriptor()
 	}
 	func addAttribute(position: Int, format: MTLVertexFormat, offset: Int, bufferIndex: Int){
-		if vertexDescriptor.attributes.count > position {
+		if position > 1 {
 			print("could not load attribute due to position out of bounds")
 			return
 		}

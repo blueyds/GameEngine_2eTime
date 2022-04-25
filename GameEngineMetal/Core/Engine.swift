@@ -9,8 +9,8 @@ import MetalKit
 
 final class Engine {
 	static let shared: Engine = Engine()
-	private let _device: MTLDevice!
-	private let _commandQueue: MTLCommandQueue!
+	let device: MTLDevice!
+	let commandQueue: MTLCommandQueue!
 	private let _shaders: ShaderLibrary
 	private let _descriptors: VertexDescriptorLibrary
 	private let _renderDescriptors: RenderDescriptorLibrary
@@ -24,27 +24,27 @@ final class Engine {
 	func Fragment(_ fragmentFunctionType: ShaderLibrary.FragmentShaderTypes)-> MTLFunction{
 		_shaders.Fragment(fragmentFunctionType)
 	}
-	func Descriptor(_ vertexDescriptorType: ShaderLibrary.Types)->MTLVertexDescriptor{
-		_descriptors.VertexDescription(vertexDescriptorType)
+	func Descriptor(_ vertexDescriptorType: VertexDescriptorLibrary.Types)->MTLVertexDescriptor{
+		_descriptors.descriptor(vertexDescriptorType)
 	}
 	func RenderDescriptor(_ renderDescriptionType: RenderDescriptorLibrary.Types)-> MTLRenderPipelineDescriptor{
 		_renderDescriptors.descriptor(renderDescriptionType)
 	}
 	func RenderState(_ renderPipelineStateType: RenderPipelineLibrary.Types)-> MTLRenderPipelineState {
-		_renderStates[renderPipelineStateType].state
+		_renderStates.renderState(renderPipelineStateType)
 	}
 	
 	private init () {
 		if let local_device = MTLCreateSystemDefaultDevice(){
-			self._device = local_device
+			self.device = local_device
 		} else { fatalError("Could not create metal device") }
-		if let cq = _device.makeCommandQueue() {
-			self._commandQueue = cq
+		if let cq = device.makeCommandQueue() {
+			self.commandQueue = cq
 		} else { fatalError("Could not create command queue") }
 		self._preferences = Preferences.shared
-		self._shaders = ShaderLibrary(device: self._device)
+		self._shaders = ShaderLibrary(device: self.device)
 		self._descriptors = VertexDescriptorLibrary()
-		self._renderDescriptors = RenderDescriptorLibrary(library: _shaders, vertexDescriptorLibrary: _descriptors, prefernces: _preferences )
-		self._renderPipelineStates = RenderPipelineLibrary(device: _device, descriptorLibrary: _renderDescriptors)
+		self._renderDescriptors = RenderDescriptorLibrary(library: _shaders, vertexDescriptorLibrary: _descriptors, preferences: _preferences )
+		self._renderStates = RenderPipelineLibrary(device: device, descriptorLibrary: _renderDescriptors)
 	}
 }

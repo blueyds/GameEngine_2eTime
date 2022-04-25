@@ -15,26 +15,30 @@ class RenderPipelineLibrary {
 		createDefaultStates()
 	}
 	func renderState(_ renderStateType: Types)-> MTLRenderPipelineState{
-		_renderPipelineStates[renderStateType].state
+		_renderPipelineStates[renderStateType]!.state
 	}
 	
 	func createDefaultStates(){
-		createSimpleState("Basic Render State", rendorDescriptorType: .Basic, atKey: .Basic)
+		createSimpleState("Basic Render State", renderDescriptorType: RenderDescriptorLibrary.Types.Basic, forKey: Types.Basic)
 	}
 	func createSimpleState(_ name: String,	
-	renderDescriptorType: RendorDescriptorLibrary.RenderDescriptorType, 
-		atKey: Types) {
+						   renderDescriptorType: RenderDescriptorLibrary.Types,
+						   forKey: Types) {
 		do{
-			rps = try device.makeRenderPipelineState(
+			let rps = try device.makeRenderPipelineState(
 			descriptor: descriptor.descriptor(renderDescriptorType))
-			var renderState = RenderPipelineState(name: name, state: rps)
-			_renderPipelineStates.updateValue(renderState, atKey: atKey)
+			let renderState = RenderPipelineState(name: name, state: rps)
+			_renderPipelineStates.updateValue(renderState, forKey: forKey)
 		}catch let error as NSError {
 			print("ERROR Creating Render Pipeline State for \(name) error = \(error)")
 		}
 	}
 }
 class RenderPipelineState{
-	var name: String = ""
-	var state: MTLRenderPipelineState = MTLRenderPipelineState()
+	var name: String
+	var state: MTLRenderPipelineState
+	init (name: String, state: MTLRenderPipelineState){
+		self.name = name
+		self.state = state
+	}
 }

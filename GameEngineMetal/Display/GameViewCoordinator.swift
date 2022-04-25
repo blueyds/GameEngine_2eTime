@@ -25,12 +25,12 @@ class GameViewCoordinator: NSObject, MTKViewDelegate {
 		
 		self.parent = parent
 		
-		super.init()
-		
 		preferences = Preferences.shared
 		
 		engine = Engine.shared
 		
+		super.init()
+				
 		createVertices()
 		
 		createBuffers()
@@ -54,16 +54,18 @@ class GameViewCoordinator: NSObject, MTKViewDelegate {
 	func draw(in view: MTKView) {
 		guard let drawable = view.currentDrawable else { return}
 		let commandBuffer = engine.commandQueue.makeCommandBuffer()
-		if let renderCommandEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: engine.RenderDescriptor(.Basic))
+		//let renderPassDescriptor = view.currentRenderPassDescriptor
+		if let renderCommandEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: view.currentRenderPassDescriptor)
 		{
 			renderCommandEncoder.setRenderPipelineState(engine.RenderState(.Basic))
+			
+			// send info to rendering commander
+			renderCommandEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
+			renderCommandEncoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: vertices.count)
+			
+			renderCommandEncoder.endEncoding()
+		}
 		
-		// send info to rendering commander
-		renderCommandEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
-		renderCommandEncoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: vertices.count)
-		
-		renderCommandEncoder.endEncoding()
-	}
 		commandBuffer?.present(drawable)
 		commandBuffer?.commit()
 	}

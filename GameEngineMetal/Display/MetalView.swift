@@ -12,6 +12,8 @@ import SwiftUI
 struct MetalView: NSViewRepresentable{
 	typealias NSViewType = MTKView
 	typealias Coordinator = GameViewCoordinator
+	let preferences = Preferences.shared
+	
 	func makeCoordinator() -> Coordinator {
 		Coordinator(self)
 	}

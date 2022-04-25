@@ -21,8 +21,8 @@ class ShaderLibrary {
 	private var vertexShaders: [VertexShaderTypes: Shader]=[:]
 	private var fragmentShaders: [FragmentShaderTypes: Shader]=[:]
 	
-	init (devive: MTLDevice){
-		self.device = devive
+	init (device: MTLDevice){
+		self.device = device
 		if let lib = self.device.makeDefaultLibrary(){
 			library = lib
 		} else { fatalError("Could not create library")}

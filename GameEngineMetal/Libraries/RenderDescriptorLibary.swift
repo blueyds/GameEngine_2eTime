@@ -9,6 +9,11 @@ class RenderDescriptorLibrary{
 	private let preferences: Preferences
 	
 	private var _descriptors: [Types: RenderPipelineDescriptor]=[:]
+	
+	
+	func descriptor(_ renderDescriptorType: Types)-> MTLRenderPipelineDescriptor{
+		_descriptors[renderDescriptorType]!.descriptor
+	}
 	init(library: ShaderLibrary, vertexDescriptorLibrary: VertexDescriptorLibrary, preferences: Preferences){
 		self.library = library
 		self.vertexDescriptor = vertexDescriptorLibrary
@@ -17,26 +22,28 @@ class RenderDescriptorLibrary{
 	func createDefaultDescriptors(){
 		createDescriptor(
 			name: "Basic Render Descriptor",
-			pixelFormat: .bg8unorm,
-			vertexFunction: .Basic,
-			fragmentFunction: .Basic,
-			vertexDescriptor: .Basic,
-			atKey: .Basic))
+			pixelFormat: preferences.mainPixelFormat,
+			vertexFunction: ShaderLibrary.VertexShaderTypes.Basic,
+			fragmentFunction: ShaderLibrary.FragmentShaderTypes.Basic,
+			vertexDescriptorType: VertexDescriptorLibrary.Types.Basic,
+			forKey: .Basic)
+		
 	}
+	
 	func createDescriptor(
-		name: String
+		name: String,
 		pixelFormat: MTLPixelFormat, 
-		vertexFunction: ShaderLibrary.VertexFunctionTypes,
-		fragmentFunction: ShaderLibrary.FragmentFunctionTypes,
-		vertexDescriptor: VertexDescriptorLibrary.VertexDescriptorTypes,
-		atKey: Types)	{
-		var rpd = RenderPipelineDescriptor()
-		rpd.name = name
-		rpd.colorAttachments[0].pixelFormat = pixelFormat
-		rpd.vertexFunction = library.Vertex(vertexFunction)
-		rpd.fragmentFunction = library.Fragment(fragmentFunction)
-		rpd.vertexDescriptor = vertexDescriptor.descriptor(vertexDescriptor)
-		_descriptors.updateValue(rpd, atKey: atKey)
+		vertexFunction: ShaderLibrary.VertexShaderTypes,
+		fragmentFunction: ShaderLibrary.FragmentShaderTypes,
+		vertexDescriptorType: VertexDescriptorLibrary.Types,
+		forKey: Types)	{
+			let rpd = RenderPipelineDescriptor()
+			rpd.name = name
+			rpd.descriptor.colorAttachments[0].pixelFormat = pixelFormat
+			rpd.descriptor.vertexFunction = library.Vertex(vertexFunction)
+			rpd.descriptor.fragmentFunction = library.Fragment(fragmentFunction)
+			rpd.descriptor.vertexDescriptor = vertexDescriptor.descriptor(vertexDescriptorType)
+			_descriptors.updateValue(rpd, forKey: forKey)
 	}
 }
 
