@@ -11,8 +11,10 @@ class GameViewCoordinator: NSObject, MTKViewDelegate {
 	
 	var parent: MetalView
 	
+	let engine: Engine
+	let preferences: Preferences
 	
-	var renderPipelineState: MTLRenderPipelineState!
+
 	//var clearColor: MTLClearColor
 	
 	var vertices: [Vertex]!
@@ -25,7 +27,9 @@ class GameViewCoordinator: NSObject, MTKViewDelegate {
 		
 		super.init()
 		
-		createRenderPipelineState()
+		preferences = Preferences.shared
+		
+		engine = Engine.shared
 		
 		createVertices()
 		
@@ -42,37 +46,24 @@ class GameViewCoordinator: NSObject, MTKViewDelegate {
 		vertexBuffer = engine.device.makeBuffer(bytes: vertices, length: Vertex.stride(vertices.count) )
 	}
 	
-	func createRenderPipelineState(){
-		
-		
-		let renderPipeLineDescriptor = MTLRenderPipelineDescriptor()
-		renderPipeLineDescriptor.colorAttachments[0].pixelFormat = preferences.mainPixelFormat
-		renderPipeLineDescriptor.vertexFunction = engine.shaders.Vertex(.Basic)
-		renderPipeLineDescriptor.fragmentFunction = engine.shaders.Fragment(.Basic)
-		renderPipeLineDescriptor.vertexDescriptor = engine.descriptors.descriptor(.Basic)
-		do{
-			renderPipelineState = try engine.device.makeRenderPipelineState(descriptor: renderPipeLineDescriptor)
-		}catch let error as NSError {
-			print(error)
-		}
-		
-		
-	}
+	
 	func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
 		
 	}
 		
 	func draw(in view: MTKView) {
-		guard let drawable = view.currentDrawable, let renderPassDescriptor = view.currentRenderPassDescriptor else { return}
+		guard let drawable = view.currentDrawable else { return}
 		let commandBuffer = engine.commandQueue.makeCommandBuffer()
-		let renderCommandEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: renderPassDescriptor)
-		renderCommandEncoder?.setRenderPipelineState(renderPipelineState)
+		if let renderCommandEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: engine.RenderDescriptor(.Basic))
+		{
+			renderCommandEncoder.setRenderPipelineState(engine.RenderState(.Basic))
 		
 		// send info to rendering commander
-		renderCommandEncoder?.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
-		renderCommandEncoder?.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: vertices.count)
+		renderCommandEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
+		renderCommandEncoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: vertices.count)
 		
-		renderCommandEncoder?.endEncoding()
+		renderCommandEncoder.endEncoding()
+	}
 		commandBuffer?.present(drawable)
 		commandBuffer?.commit()
 	}

@@ -8,16 +8,16 @@
 import MetalKit
 
 
-enum VertexShaderTypes{
-	case Basic
-}
-
-enum FragmentShaderTypes{
-	case Basic
-}
 class ShaderLibrary {
-	var library: MTLLibrary!
-	let device: MTLDevice!
+	enum VertexShaderTypes{
+		case Basic
+	}
+	enum FragmentShaderTypes{
+		case Basic
+	}
+
+	private var library: MTLLibrary!
+	private let device: MTLDevice!
 	private var vertexShaders: [VertexShaderTypes: Shader]=[:]
 	private var fragmentShaders: [FragmentShaderTypes: Shader]=[:]
 	

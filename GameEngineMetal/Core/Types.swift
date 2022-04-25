@@ -9,7 +9,7 @@ import simd
 
 protocol sizeable{
 	static func size( _ count: Int)-> Int
-	static func stride(_ count: Int) -> Int
+	static func stride(_ count: Int)-> Int
 }
 
 extension sizeable{

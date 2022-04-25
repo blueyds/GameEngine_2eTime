@@ -22,7 +22,7 @@ struct MetalView: NSViewRepresentable{
 		mtkView.preferredFramesPerSecond = preferences.framesPerSEcond
 		mtkView.enableSetNeedsDisplay = false
 		mtkView.isPaused = false
-		mtkView.device = engine.device
+		mtkView.device =  Engine.shared.device
 		
 		mtkView.framebufferOnly = false
 		mtkView.clearColor = preferences.clearColor
