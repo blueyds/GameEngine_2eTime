@@ -9,9 +9,9 @@ import MetalKit
 import SwiftUI
 
  // -- Metal View with a delegate
-struct MetalView: NSViewRepresentable{
+struct GameView: NSViewRepresentable{
 	typealias NSViewType = MTKView
-	typealias Coordinator = GameViewCoordinator
+	typealias Coordinator = Renderer
 	let preferences = Preferences.shared
 	
 	func makeCoordinator() -> Coordinator {
