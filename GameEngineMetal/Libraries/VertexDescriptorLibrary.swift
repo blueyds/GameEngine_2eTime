@@ -28,9 +28,9 @@ class VertexDescriptorLibrary {
 		// position attributes
 		basic.addAttribute(position: 0, format: .float3, offset: 0, bufferIndex: 0)
 		// color attributes
-		basic.addAttribute(position: 1, format: .float4, offset: simd_float3.size(), bufferIndex: 0)
+		basic.addAttribute(position: 1, format: .float4, offset: simd_float3.size, bufferIndex: 0)
 		// layout
-		basic.addLayout(stride: Vertex.stride())
+		basic.addLayout(stride: Vertex.stride)
 		vertexDescriptors.updateValue(basic, forKey: .Basic)
 	}
 }

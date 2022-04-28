@@ -30,6 +30,7 @@ class Renderer: NSObject, MTKViewDelegate {
 	}
 		
 	func draw(in view: MTKView) {
+		player.update(deltaTime: 1 / Float(view.preferredFramesPerSecond))
 		guard let drawable = view.currentDrawable else { return}
 		let commandBuffer = engine.commandQueue.makeCommandBuffer()
 		if view.currentRenderPassDescriptor != nil {

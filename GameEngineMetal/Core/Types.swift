@@ -13,10 +13,10 @@ protocol sizeable{
 }
 
 extension sizeable{
-	static func size()-> Int {
+	static var size: Int {
 		MemoryLayout<Self>.size
 	}
-	static func stride()-> Int {
+	static var stride: Int {
 		MemoryLayout<Self>.stride
 	}
 	static func size(_ count: Int) -> Int {
@@ -29,8 +29,14 @@ extension sizeable{
 
 extension simd_float3: sizeable{}
 extension simd_float4: sizeable {}
+extension Float: sizeable {}
+
 
 struct Vertex: sizeable {
 	var position: simd_float3
 	var color: simd_float4
+}
+
+struct ModelConstants: sizeable {
+	var modelMatrix = matrix_identity_float4x4
 }
