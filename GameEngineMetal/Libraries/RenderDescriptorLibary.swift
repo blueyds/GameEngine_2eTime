@@ -4,9 +4,9 @@ class RenderDescriptorLibrary{
 	enum Types{
 		case Basic
 	}
-	private let library: ShaderLibrary
-	private let vertexDescriptor: VertexDescriptorLibrary
-	private let preferences: Preferences
+	private let _library: ShaderLibrary
+	private let _vertexDescriptor: VertexDescriptorLibrary
+	private let _preferences: Preferences
 	
 	private var _descriptors: [Types: RenderPipelineDescriptor]=[:]
 	
@@ -15,14 +15,15 @@ class RenderDescriptorLibrary{
 		_descriptors[renderDescriptorType]!.descriptor
 	}
 	init(library: ShaderLibrary, vertexDescriptorLibrary: VertexDescriptorLibrary, preferences: Preferences){
-		self.library = library
-		self.vertexDescriptor = vertexDescriptorLibrary
+		self._library = library
+		self._vertexDescriptor = vertexDescriptorLibrary
+		self._preferences = preferences
 		createDefaultDescriptors()
 	}
-	func createDefaultDescriptors(){
+	private func createDefaultDescriptors(){
 		createDescriptor(
 			name: "Basic Render Descriptor",
-			pixelFormat: preferences.mainPixelFormat,
+			pixelFormat: _preferences.mainPixelFormat,
 			vertexFunction: ShaderLibrary.VertexShaderTypes.Basic,
 			fragmentFunction: ShaderLibrary.FragmentShaderTypes.Basic,
 			vertexDescriptorType: VertexDescriptorLibrary.Types.Basic,
@@ -40,9 +41,9 @@ class RenderDescriptorLibrary{
 			let rpd = RenderPipelineDescriptor()
 			rpd.name = name
 			rpd.descriptor.colorAttachments[0].pixelFormat = pixelFormat
-			rpd.descriptor.vertexFunction = library.Vertex(vertexFunction)
-			rpd.descriptor.fragmentFunction = library.Fragment(fragmentFunction)
-			rpd.descriptor.vertexDescriptor = vertexDescriptor.descriptor(vertexDescriptorType)
+			rpd.descriptor.vertexFunction = _library.Vertex(vertexFunction)
+			rpd.descriptor.fragmentFunction = _library.Fragment(fragmentFunction)
+			rpd.descriptor.vertexDescriptor = _vertexDescriptor.descriptor(vertexDescriptorType)
 			_descriptors.updateValue(rpd, forKey: forKey)
 	}
 }
