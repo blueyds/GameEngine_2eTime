@@ -15,6 +15,7 @@ final class Engine {
 	private let _descriptors: VertexDescriptorLibrary
 	private let _renderDescriptors: RenderDescriptorLibrary
 	private let _renderStates: RenderPipelineLibrary
+	private let _meshes: MeshLibrary
 	private let _preferences: Preferences
 	
 	func Vertex(_ vertexFunctionType: ShaderLibrary.VertexShaderTypes)-> MTLFunction{
@@ -34,6 +35,10 @@ final class Engine {
 		_renderStates.renderState(renderPipelineStateType)
 	}
 	
+	func Mesh(_ meshType: MeshLibrary.Types)->Mesh {
+		_meshes.mesh(meshType)
+	}
+	
 	private init () {
 		if let local_device = MTLCreateSystemDefaultDevice(){
 			self.device = local_device
@@ -46,5 +51,6 @@ final class Engine {
 		self._descriptors = VertexDescriptorLibrary()
 		self._renderDescriptors = RenderDescriptorLibrary(library: _shaders, vertexDescriptorLibrary: _descriptors, preferences: _preferences )
 		self._renderStates = RenderPipelineLibrary(device: device, descriptorLibrary: _renderDescriptors)
+		self._meshes = MeshLibrary(device: device)
 	}
 }

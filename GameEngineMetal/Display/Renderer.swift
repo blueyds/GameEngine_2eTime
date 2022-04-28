@@ -13,16 +13,14 @@ class Renderer: NSObject, MTKViewDelegate {
 	
 	let engine: Engine
 	let preferences: Preferences
-	var gameObject: GameObject
+	var player: Player
 
-	
-	
 	
 	init (_ parent: GameView){
 		self.parent = parent
 		preferences = Preferences.shared
 		engine = Engine.shared
-		gameObject = GameObject()
+		player = Player()
 		super.init()
 	}
 
@@ -36,7 +34,7 @@ class Renderer: NSObject, MTKViewDelegate {
 		let commandBuffer = engine.commandQueue.makeCommandBuffer()
 		if view.currentRenderPassDescriptor != nil {
 			if let renderCommandEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: view.currentRenderPassDescriptor!) {
-				gameObject.render(renderCommandEncoder: renderCommandEncoder)
+				player.render(renderCommandEncoder: renderCommandEncoder)
 				renderCommandEncoder.endEncoding()
 			}
 		}

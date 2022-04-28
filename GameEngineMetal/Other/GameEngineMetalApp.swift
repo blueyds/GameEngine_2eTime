@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct GameEngineMetalApp: App {
-	
+	let engine: Engine = Engine.shared
     var body: some Scene {
         WindowGroup {
             ContentView()
