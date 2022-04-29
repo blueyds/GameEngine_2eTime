@@ -13,14 +13,13 @@ class Renderer: NSObject, MTKViewDelegate {
 	
 	let engine: Engine
 	let preferences: Preferences
-	var player: Player
-
+	var scenes: SceneManager
 	
 	init (_ parent: GameView){
 		self.parent = parent
 		preferences = Preferences.shared
 		engine = Engine.shared
-		player = Player()
+		scenes = SceneManager.shared
 		super.init()
 	}
 
@@ -30,12 +29,12 @@ class Renderer: NSObject, MTKViewDelegate {
 	}
 		
 	func draw(in view: MTKView) {
-		player.update(deltaTime: 1 / Float(view.preferredFramesPerSecond))
+		scenes.updateScene(deltaTime: 1 / Float(view.preferredFramesPerSecond))
 		guard let drawable = view.currentDrawable else { return}
 		let commandBuffer = engine.commandQueue.makeCommandBuffer()
 		if view.currentRenderPassDescriptor != nil {
 			if let renderCommandEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: view.currentRenderPassDescriptor!) {
-				player.render(renderCommandEncoder: renderCommandEncoder)
+				scenes.renderScene(renderCommandEncoder: renderCommandEncoder)
 				renderCommandEncoder.endEncoding()
 			}
 		}

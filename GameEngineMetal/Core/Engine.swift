@@ -18,10 +18,10 @@ final class Engine {
 	private let _meshes: MeshLibrary
 	private let _preferences: Preferences
 	
+	
 	func Vertex(_ vertexFunctionType: ShaderLibrary.VertexShaderTypes)-> MTLFunction{
 		_shaders.Vertex(vertexFunctionType)
 	}
-	
 	func Fragment(_ fragmentFunctionType: ShaderLibrary.FragmentShaderTypes)-> MTLFunction{
 		_shaders.Fragment(fragmentFunctionType)
 	}
@@ -34,7 +34,6 @@ final class Engine {
 	func RenderState(_ renderPipelineStateType: RenderPipelineLibrary.Types)-> MTLRenderPipelineState {
 		_renderStates.renderState(renderPipelineStateType)
 	}
-	
 	func Mesh(_ meshType: MeshLibrary.Types)->Mesh {
 		_meshes.mesh(meshType)
 	}

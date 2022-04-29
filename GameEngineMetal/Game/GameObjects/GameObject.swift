@@ -15,13 +15,11 @@ class GameObject: Node {
 	init(meshType: MeshLibrary.Types){
 		mesh = Engine.shared.Mesh(meshType)
 	}
-	var time: Float = 0
-	func update(deltaTime: Float){
-		time += deltaTime
-		
-		self.scale = simd_float3(repeating: cos(time))
+	
+	override func update(deltaTime: Float){
 		
 		updateModelConstants()
+
 	}
 	private func updateModelConstants(){
 		modelConstants.modelMatrix = self.modelMatrix

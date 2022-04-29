@@ -57,7 +57,7 @@ class MeshLibrary {
 		case Triangle_Custom
 		case Quad_Custom
 	}
-	private var _meshes: [Types:Mesh]=[:]
+	private var _meshes: [Types:Mesh] = [:]
 	private var _device: MTLDevice!
 	
 	init(device: MTLDevice!){
