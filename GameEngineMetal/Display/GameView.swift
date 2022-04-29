@@ -13,6 +13,7 @@ struct GameView: NSViewRepresentable{
 	typealias NSViewType = MTKView
 	typealias Coordinator = Renderer
 	let preferences = Preferences.shared
+	let engine = Engine.shared
 	
 	func makeCoordinator() -> Coordinator {
 		Coordinator(self)
@@ -24,14 +25,19 @@ struct GameView: NSViewRepresentable{
 		mtkView.preferredFramesPerSecond = preferences.framesPerSEcond
 		mtkView.enableSetNeedsDisplay = false
 		mtkView.isPaused = false
-		mtkView.device =  Engine.shared.device
+		mtkView.device =  engine.device
 		
 		mtkView.framebufferOnly = false
 		mtkView.clearColor = preferences.clearColor
 		mtkView.drawableSize = mtkView.frame.size
+		
 		return mtkView
 	}
 	func updateNSView(_ nsView: NSViewType, context: Context) {
+		engine.screenSize = simd_float2(Float(nsView.bounds.width),
+										Float(nsView.bounds.height))
 		
 	}
+	
 }
+

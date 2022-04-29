@@ -33,6 +33,9 @@
 		D16C1E23281B540700E58127 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16C1E22281B540700E58127 /* Scene.swift */; };
 		D16C1E25281B55B700E58127 /* SandboxScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16C1E24281B55B700E58127 /* SandboxScene.swift */; };
 		D16C1E28281B581800E58127 /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16C1E27281B581800E58127 /* SceneManager.swift */; };
+		D16C1E2E281B786100E58127 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16C1E2D281B786100E58127 /* Keyboard.swift */; };
+		D16C1E30281B7D9200E58127 /* Mouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16C1E2F281B7D9200E58127 /* Mouse.swift */; };
+		D16C1E32281C2C6D00E58127 /* GameEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16C1E31281C2C6D00E58127 /* GameEventHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +86,9 @@
 		D16C1E22281B540700E58127 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		D16C1E24281B55B700E58127 /* SandboxScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandboxScene.swift; sourceTree = "<group>"; };
 		D16C1E27281B581800E58127 /* SceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
+		D16C1E2D281B786100E58127 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		D16C1E2F281B7D9200E58127 /* Mouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mouse.swift; sourceTree = "<group>"; };
+		D16C1E31281C2C6D00E58127 /* GameEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEventHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +191,7 @@
 		D144F73328149EEF009EBD0D /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				D16C1E2C281B785200E58127 /* Input */,
 				D144F7372814A0CB009EBD0D /* Engine.swift */,
 				D144F731281491F8009EBD0D /* Types.swift */,
 				D144F7392814A3F2009EBD0D /* Preferences.swift */,
@@ -218,6 +225,7 @@
 				D10E61D828123E7600EDC156 /* ContentView.swift */,
 				D10E62012812436A00EDC156 /* GameView.swift */,
 				D10E62032812484E00EDC156 /* Renderer.swift */,
+				D16C1E31281C2C6D00E58127 /* GameEventHandler.swift */,
 			);
 			path = Display;
 			sourceTree = "<group>";
@@ -273,6 +281,15 @@
 				D16C1E27281B581800E58127 /* SceneManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		D16C1E2C281B785200E58127 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				D16C1E2D281B786100E58127 /* Keyboard.swift */,
+				D16C1E2F281B7D9200E58127 /* Mouse.swift */,
+			);
+			path = Input;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,13 +436,16 @@
 				D144F732281491F8009EBD0D /* Types.swift in Sources */,
 				D10E620628124E3F00EDC156 /* MyShaders.metal in Sources */,
 				D16C1E20281B331D00E58127 /* Math.swift in Sources */,
+				D16C1E2E281B786100E58127 /* Keyboard.swift in Sources */,
 				D10E61D728123E7600EDC156 /* GameEngineMetalApp.swift in Sources */,
 				D16C1E19281B15B000E58127 /* Node.swift in Sources */,
 				D140985628162FAE00DA299A /* RenderDescriptorLibary.swift in Sources */,
 				D144F73A2814A3F2009EBD0D /* Preferences.swift in Sources */,
+				D16C1E32281C2C6D00E58127 /* GameEventHandler.swift in Sources */,
 				D16C1E17281B147900E58127 /* Player.swift in Sources */,
 				D16C1E25281B55B700E58127 /* SandboxScene.swift in Sources */,
 				D144F7382814A0CB009EBD0D /* Engine.swift in Sources */,
+				D16C1E30281B7D9200E58127 /* Mouse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

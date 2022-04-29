@@ -11,6 +11,7 @@ final class Engine {
 	static let shared: Engine = Engine()
 	let device: MTLDevice!
 	let commandQueue: MTLCommandQueue!
+	var screenSize = simd_float2(repeating: 0)
 	private let _shaders: ShaderLibrary
 	private let _descriptors: VertexDescriptorLibrary
 	private let _renderDescriptors: RenderDescriptorLibrary
