@@ -29,6 +29,7 @@ extension sizeable{
 
 extension simd_float3: sizeable{}
 extension simd_float4: sizeable {}
+extension simd_float2: sizeable {}
 extension Float: sizeable {}
 
 
@@ -39,4 +40,8 @@ struct Vertex: sizeable {
 
 struct ModelConstants: sizeable {
 	var modelMatrix = matrix_identity_float4x4
+}
+
+struct SceneConstants:sizeable {
+	var viewMatrix = matrix_identity_float4x4
 }

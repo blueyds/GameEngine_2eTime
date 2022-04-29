@@ -28,7 +28,7 @@ class GameObject: Node {
 
 extension GameObject: Renderable {
 	func doRender(renderCommandEncoder: MTLRenderCommandEncoder) {
-		renderCommandEncoder.setVertexBytes(&modelConstants, length: ModelConstants.stride, index: 1)
+		renderCommandEncoder.setVertexBytes(&modelConstants, length: ModelConstants.stride, index: 2)
 		renderCommandEncoder.setRenderPipelineState(Engine.shared.RenderState(.Basic))
 		// send info to rendering commander
 		renderCommandEncoder.setVertexBuffer(mesh.vertexBuffer, offset: 0, index: 0)
