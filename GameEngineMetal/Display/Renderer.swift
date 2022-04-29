@@ -6,10 +6,13 @@
 //
 
 import MetalKit
+import SwiftUI
 
 class Renderer: NSObject, MTKViewDelegate {
 	static var ScreenSize = simd_float2(repeating: 0)
-	
+	static var AspectRatio: Float {
+		ScreenSize.x / ScreenSize.y
+	}
 	var parent: GameView
 	
 	let engine: Engine

@@ -9,10 +9,13 @@ import SwiftUI
 
 @main
 struct GameEngineMetalApp: App {
-	let preference: Preferences = Preferences.shared
-	let engine: Engine = Engine.shared
-	let scenes: SceneManager = SceneManager.shared
+	let preference: Preferences
+	let engine: Engine
+	let scenes: SceneManager
 	init(){
+		preference = Preferences.shared
+		engine = Engine.shared
+		scenes = SceneManager.shared
 		scenes.setScene(preference.startingSceneType)
 	}
 	

@@ -18,6 +18,7 @@ final class Engine {
 	private let _renderStates: RenderPipelineLibrary
 	private let _meshes: MeshLibrary
 	private let _preferences: Preferences
+	private let _depthStencilStates: DepthStencilStateLibrary
 	
 	
 	func Vertex(_ vertexFunctionType: ShaderLibrary.VertexShaderTypes)-> MTLFunction{
@@ -39,6 +40,10 @@ final class Engine {
 		_meshes.mesh(meshType)
 	}
 	
+	func DepthStencilStates(_ depthStencilStateType: DepthStencilStateLibrary.Types)-> MTLDepthStencilState {
+		_depthStencilStates.DepthStencilState(depthStencilStateType)
+	}
+	
 	private init () {
 		if let local_device = MTLCreateSystemDefaultDevice(){
 			self.device = local_device
@@ -52,5 +57,6 @@ final class Engine {
 		self._renderDescriptors = RenderDescriptorLibrary(library: _shaders, vertexDescriptorLibrary: _descriptors, preferences: _preferences )
 		self._renderStates = RenderPipelineLibrary(device: device, descriptorLibrary: _renderDescriptors)
 		self._meshes = MeshLibrary(device: device)
+		self._depthStencilStates = DepthStencilStateLibrary(device: device)
 	}
 }

@@ -5,7 +5,7 @@
 //  Created by Craig Nunemaker on 4/28/22.
 //
 
-import MetalKit
+import simd
 
 enum Axis{
 	case x
@@ -13,6 +13,16 @@ enum Axis{
 	case z
 }
 
+
+extension Float {
+	var toRadians: Float{
+		(self / 100.0) * Float.pi
+	}
+	
+	var toDegrees: Float {
+		self * (100.0 / Float.pi)
+	}
+}
 extension matrix_float4x4 {
 	
 	mutating func translate(direction: simd_float3){
@@ -69,5 +79,33 @@ extension matrix_float4x4 {
 			simd_float4(0,0,0,1)
 		)
 		self = matrix_multiply(self, result)
+	}
+	
+	//https://gamedev.stackexchange.com/questions/120338/what-does-a-perspective-projection-matrix-look-like-in-opengl
+	static func perspective(degreesFov: Float, aspectRatio: Float, near: Float, far: Float)->matrix_float4x4{
+		let fov = degreesFov.toRadians
+		
+		let t: Float = tan(fov / 2)
+		
+		var result = matrix_identity_float4x4
+		result.columns = (
+			simd_float4(1 / (aspectRatio * t),
+						0,
+						0,
+						0),
+			simd_float4(0,
+						1 / t,
+						0,
+						0),
+			simd_float4(0,
+						0,
+						-((far + near) / (far - near)),
+						-1),
+			simd_float4(0,
+						0,
+						-((2 * far * near) / (far - near)),
+						0)
+		)
+		return result
 	}
 }

@@ -10,18 +10,16 @@ import simd
 
 class SandboxScene: GameScene {
 	var camera = DebugCamera()
+	var cube = Cube()
 	override func buildScene() {
 		addCamera(camera)
-		let count: Int = 5
-		for y in -count..<count{
-			for x in -count..<count{
-				let player = Pointer(camera: camera)
-				player.position.y = Float(Float(y) + 0.5) / Float(count)
-				player.position.x = Float(Float(x) + 0.5) / Float(count)
-				player.scale = simd_float3(repeating: 0.1)
-				addChild(player)
-			}
-		}
+		camera.position.z = 5
+		addChild(cube)
+	}
+	override func update(deltaTime: Float) {
+		cube.rotation.x += deltaTime
+		cube.rotation.y += deltaTime
+		super.update(deltaTime: deltaTime)
 	}
 	
 }

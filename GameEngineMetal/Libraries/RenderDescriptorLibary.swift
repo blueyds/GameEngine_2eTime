@@ -24,6 +24,7 @@ class RenderDescriptorLibrary{
 		createDescriptor(
 			name: "Basic Render Descriptor",
 			pixelFormat: _preferences.mainPixelFormat,
+			depthPixelFormat: _preferences.mainDepthPixelFormat,
 			vertexFunction: ShaderLibrary.VertexShaderTypes.Basic,
 			fragmentFunction: ShaderLibrary.FragmentShaderTypes.Basic,
 			vertexDescriptorType: VertexDescriptorLibrary.Types.Basic,
@@ -33,7 +34,8 @@ class RenderDescriptorLibrary{
 	
 	func createDescriptor(
 		name: String,
-		pixelFormat: MTLPixelFormat, 
+		pixelFormat: MTLPixelFormat,
+		depthPixelFormat: MTLPixelFormat,
 		vertexFunction: ShaderLibrary.VertexShaderTypes,
 		fragmentFunction: ShaderLibrary.FragmentShaderTypes,
 		vertexDescriptorType: VertexDescriptorLibrary.Types,
@@ -41,6 +43,7 @@ class RenderDescriptorLibrary{
 			let rpd = RenderPipelineDescriptor()
 			rpd.name = name
 			rpd.descriptor.colorAttachments[0].pixelFormat = pixelFormat
+			rpd.descriptor.depthAttachmentPixelFormat = depthPixelFormat
 			rpd.descriptor.vertexFunction = _library.Vertex(vertexFunction)
 			rpd.descriptor.fragmentFunction = _library.Fragment(fragmentFunction)
 			rpd.descriptor.vertexDescriptor = _vertexDescriptor.descriptor(vertexDescriptorType)
@@ -50,5 +53,5 @@ class RenderDescriptorLibrary{
 
 class RenderPipelineDescriptor{
 	var name : String = "" 
-	var descriptor = MTLRenderPipelineDescriptor()
+	var descriptor: MTLRenderPipelineDescriptor! = MTLRenderPipelineDescriptor()
 }
