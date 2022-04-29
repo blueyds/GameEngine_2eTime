@@ -41,6 +41,7 @@
 		D16C1E39281C46BD00E58127 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16C1E38281C46BC00E58127 /* CameraManager.swift */; };
 		D16C1E3B281C62C300E58127 /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16C1E3A281C62C300E58127 /* Cube.swift */; };
 		D16C1E3D281C677200E58127 /* DepthStencilStateLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16C1E3C281C677200E58127 /* DepthStencilStateLibrary.swift */; };
+		D16C1E40281C76C700E58127 /* ColorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16C1E3F281C76C700E58127 /* ColorUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		D16C1E38281C46BC00E58127 /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		D16C1E3A281C62C300E58127 /* Cube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
 		D16C1E3C281C677200E58127 /* DepthStencilStateLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthStencilStateLibrary.swift; sourceTree = "<group>"; };
+		D16C1E3F281C76C700E58127 /* ColorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,12 +152,13 @@
 		D10E61D528123E7600EDC156 /* GameEngineMetal */ = {
 			isa = PBXGroup;
 			children = (
-				D16C1E29281B5B3000E58127 /* Managers */,
+				D16C1E3E281C76A700E58127 /* Utils */,
 				D16C1E1E281B330C00E58127 /* Math */,
-				D16C1E11281B04C500E58127 /* Game */,
 				D144F73328149EEF009EBD0D /* Core */,
 				D144F73428149EFE009EBD0D /* Libraries */,
+				D16C1E29281B5B3000E58127 /* Managers */,
 				D144F73528149F2B009EBD0D /* Shaders */,
+				D16C1E11281B04C500E58127 /* Game */,
 				D144F73628149F42009EBD0D /* Display */,
 				D144F730281462E1009EBD0D /* Other */,
 				D10E61DC28123E7B00EDC156 /* Preview Content */,
@@ -315,6 +318,14 @@
 			path = Cameras;
 			sourceTree = "<group>";
 		};
+		D16C1E3E281C76A700E58127 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D16C1E3F281C76C700E58127 /* ColorUtil.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -448,6 +459,7 @@
 				D16C1E1C281B163800E58127 /* Renderable.swift in Sources */,
 				D10E62022812436A00EDC156 /* GameView.swift in Sources */,
 				D140985528162FAE00DA299A /* RenderPipelineState.swift in Sources */,
+				D16C1E40281C76C700E58127 /* ColorUtil.swift in Sources */,
 				D16C1E23281B540700E58127 /* Scene.swift in Sources */,
 				D144F73C2814BC0A009EBD0D /* ShaderLibrary.swift in Sources */,
 				D10E62042812484E00EDC156 /* Renderer.swift in Sources */,
