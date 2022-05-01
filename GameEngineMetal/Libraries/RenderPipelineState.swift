@@ -3,6 +3,7 @@ import MetalKit
 class RenderPipelineLibrary {
 	enum Types{
 		case Basic
+		case Instanced
 	}
 	private let device: MTLDevice!
 	private let descriptor: RenderDescriptorLibrary
@@ -19,7 +20,9 @@ class RenderPipelineLibrary {
 	}
 	
 	func createDefaultStates(){
-		createSimpleState("Basic Render State", renderDescriptorType: RenderDescriptorLibrary.Types.Basic, forKey: Types.Basic)
+		createSimpleState("Basic Render State", renderDescriptorType: RenderDescriptorLibrary.Types.Basic, forKey: .Basic)
+		createSimpleState("Instanced Render State", renderDescriptorType: RenderDescriptorLibrary.Types.Instanced, forKey: .Instanced)
+		
 	}
 	func createSimpleState(_ name: String,	
 						   renderDescriptorType: RenderDescriptorLibrary.Types,

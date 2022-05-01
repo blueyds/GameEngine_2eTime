@@ -16,6 +16,7 @@ class GameObject: Node {
 	
 	//var deltaPosition: Float = 0
 	init(meshType: MeshLibrary.Types){
+		
 		engine = Engine.shared
 		mesh = engine.Mesh(meshType)
 	}
@@ -35,13 +36,14 @@ extension GameObject: Renderable {
 		renderCommandEncoder.setRenderPipelineState(Engine.shared.RenderState(.Basic))
 		renderCommandEncoder.setDepthStencilState(engine.DepthStencilStates(.Less))
 		// Vertex shader
-		renderCommandEncoder.setVertexBuffer(mesh.vertexBuffer, offset: 0, index: 0)
+//		renderCommandEncoder.setVertexBuffer(mesh.vertexBuffer, offset: 0, index: 0)
 		renderCommandEncoder.setVertexBytes(&modelConstants, length: ModelConstants.stride, index: 2)
 		
 		//fragment shader
 		renderCommandEncoder.setFragmentBytes(&material, length: Material.stride, index: 1)
 		// draw function
-		renderCommandEncoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: mesh.vertexCount)
+//		renderCommandEncoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: mesh.vertexCount)
+		mesh.drawPrimitives(renderCommandEncoder)
 	}
 }
 

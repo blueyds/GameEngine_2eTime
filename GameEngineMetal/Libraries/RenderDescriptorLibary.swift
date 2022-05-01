@@ -3,6 +3,7 @@ import MetalKit
 class RenderDescriptorLibrary{
 	enum Types{
 		case Basic
+		case Instanced
 	}
 	private let _library: ShaderLibrary
 	private let _vertexDescriptor: VertexDescriptorLibrary
@@ -22,18 +23,25 @@ class RenderDescriptorLibrary{
 	}
 	private func createDefaultDescriptors(){
 		createDescriptor(
-			name: "Basic Render Descriptor",
+			"Basic Render Descriptor",
 			pixelFormat: _preferences.mainPixelFormat,
 			depthPixelFormat: _preferences.mainDepthPixelFormat,
 			vertexFunction: ShaderLibrary.VertexShaderTypes.Basic,
 			fragmentFunction: ShaderLibrary.FragmentShaderTypes.Basic,
 			vertexDescriptorType: VertexDescriptorLibrary.Types.Basic,
 			forKey: .Basic)
-		
+		createDescriptor(
+			"Instanced Render Descriptor",
+			pixelFormat: _preferences.mainPixelFormat,
+			depthPixelFormat: _preferences.mainDepthPixelFormat,
+			vertexFunction: ShaderLibrary.VertexShaderTypes.Instanced,
+			fragmentFunction: ShaderLibrary.FragmentShaderTypes.Basic,
+			vertexDescriptorType: VertexDescriptorLibrary.Types.Basic,
+			forKey: .Instanced)
 	}
 	
 	func createDescriptor(
-		name: String,
+		_ name: String,
 		pixelFormat: MTLPixelFormat,
 		depthPixelFormat: MTLPixelFormat,
 		vertexFunction: ShaderLibrary.VertexShaderTypes,
