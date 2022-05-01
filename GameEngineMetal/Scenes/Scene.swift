@@ -11,8 +11,8 @@ class GameScene: Node {
 	var cameraManager = CameraManager()
 	var sceneConstants = SceneConstants()
 	// var camera = DebugCamera()
-	override init(){
-		super.init()
+	init(){
+		super.init(name: "Scene")
 		buildScene()
 	}
 	

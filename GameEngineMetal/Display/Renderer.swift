@@ -41,8 +41,10 @@ class Renderer: NSObject, MTKViewDelegate {
 		scenes.updateScene(deltaTime: 1 / Float(view.preferredFramesPerSecond))
 		guard let drawable = view.currentDrawable else { return}
 		let commandBuffer = engine.commandQueue.makeCommandBuffer()
+		commandBuffer?.label = "My Command Buffer"
 		if view.currentRenderPassDescriptor != nil {
 			if let renderCommandEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: view.currentRenderPassDescriptor!) {
+				renderCommandEncoder.label = "First Render Command Encoder"
 				scenes.renderScene(renderCommandEncoder: renderCommandEncoder)
 				renderCommandEncoder.endEncoding()
 			}
