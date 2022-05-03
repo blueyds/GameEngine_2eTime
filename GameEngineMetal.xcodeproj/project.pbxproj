@@ -19,6 +19,7 @@
 		D10E620628124E3F00EDC156 /* MyShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = D10E620528124E3F00EDC156 /* MyShaders.metal */; };
 		D1287A12281F2EF7004E5DA5 /* InstancedGameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1287A11281F2EF7004E5DA5 /* InstancedGameObject.swift */; };
 		D1287A14281F3F1B004E5DA5 /* CubeCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1287A13281F3F1B004E5DA5 /* CubeCollection.swift */; };
+		D1287A16281F5107004E5DA5 /* Quad.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1287A15281F5107004E5DA5 /* Quad.swift */; };
 		D140985528162FAE00DA299A /* RenderPipelineState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140985328162FAE00DA299A /* RenderPipelineState.swift */; };
 		D140985628162FAE00DA299A /* RenderDescriptorLibary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140985428162FAE00DA299A /* RenderDescriptorLibary.swift */; };
 		D144F732281491F8009EBD0D /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = D144F731281491F8009EBD0D /* Types.swift */; };
@@ -80,6 +81,7 @@
 		D10E620528124E3F00EDC156 /* MyShaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = MyShaders.metal; sourceTree = "<group>"; };
 		D1287A11281F2EF7004E5DA5 /* InstancedGameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstancedGameObject.swift; sourceTree = "<group>"; };
 		D1287A13281F3F1B004E5DA5 /* CubeCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeCollection.swift; sourceTree = "<group>"; };
+		D1287A15281F5107004E5DA5 /* Quad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quad.swift; sourceTree = "<group>"; };
 		D140985328162FAE00DA299A /* RenderPipelineState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderPipelineState.swift; sourceTree = "<group>"; };
 		D140985428162FAE00DA299A /* RenderDescriptorLibary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderDescriptorLibary.swift; sourceTree = "<group>"; };
 		D144F731281491F8009EBD0D /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				D16C1E3A281C62C300E58127 /* Cube.swift */,
 				D1287A11281F2EF7004E5DA5 /* InstancedGameObject.swift */,
 				D1287A13281F3F1B004E5DA5 /* CubeCollection.swift */,
+				D1287A15281F5107004E5DA5 /* Quad.swift */,
 			);
 			path = GameObjects;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				D10E61D728123E7600EDC156 /* GameEngineMetalApp.swift in Sources */,
 				D16C1E19281B15B000E58127 /* Node.swift in Sources */,
 				D140985628162FAE00DA299A /* RenderDescriptorLibary.swift in Sources */,
+				D1287A16281F5107004E5DA5 /* Quad.swift in Sources */,
 				D144F73A2814A3F2009EBD0D /* Preferences.swift in Sources */,
 				D16C1E32281C2C6D00E58127 /* GameEventHandler.swift in Sources */,
 				D1287A14281F3F1B004E5DA5 /* CubeCollection.swift in Sources */,
