@@ -35,11 +35,11 @@ class Node{
 	func addChild(_ child: Node){
 		children.append(child)
 	}
-	// Override doUpdte instead of the update function
-	func doUpdate() {}
 	
-	func update(deltaTime: Float){
-		doUpdate()
+	func update(){
+		if let updateable = self as? Updateable {
+			updateable.doUpdate()
+		}
 		for child in children {
 			child.parentModelMatrix = self.modelMatrix
 			child.update(deltaTime: deltaTime)

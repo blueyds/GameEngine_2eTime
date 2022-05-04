@@ -5,23 +5,26 @@
 //  Created by Craig Nunemaker on 4/29/22.
 //
 
-import Foundation
 import simd
 
 enum CameraTypes {
 	case Debug
 }
-protocol Camera {
-	var cameraType: CameraTypes {get}
-	var position: simd_float3 { get set}
-	var projectionMatrix: matrix_float4x4 { get }
-	func update(deltaTime: Float)
-}
-
-extension Camera {
-	var viewMatrix: matrix_float4x4 {
-		var result = matrix_identity_float4x4
-		result.translate(direction: -position)
-		return result
-	}
+class Camera: Node {
+    var cameraType: CameraTypes!
+    
+    var viewMatrix: matrix_float4x4 {
+        var viewMatrix = matrix_identity_float4x4
+        viewMatrix.translate(direction: -getPosition())
+        return viewMatrix
+    }
+    
+    var projectionMatrix: matrix_float4x4 {
+        return matrix_identity_float4x4
+    }
+    
+    init(cameraType: CameraTypes){
+        super.init(name: "Camera")
+        self.cameraType = cameraType
+    }
 }

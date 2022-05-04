@@ -8,49 +8,46 @@
 import MetalKit
 
 class GameObject: Node {
-	var modelConstants = ModelConstants()
-	private var material = Material()
-	var mesh: Mesh!
-	let engine: Engine
-	
-	
-	//var deltaPosition: Float = 0
-	init(meshType: MeshLibrary.Types){
-		
-		engine = Engine.shared
-		mesh = engine.Mesh(meshType)
-	}
-	
-	override func update(deltaTime: Float){
-		
-		updateModelConstants()
-
-	}
-	private func updateModelConstants(){
-		modelConstants.modelMatrix = self.modelMatrix
-	}
+    
+    var modelConstants = ModelConstants()
+    private var material = Material()
+    
+    var mesh: Mesh!
+    
+    init(meshType: MeshTypes) {
+        mesh = Entities.Meshes[meshType]
+    }
+    
+    override func update(){
+        updateModelConstants()
+        super.update()
+    }
+    
+    private func updateModelConstants(){
+        modelConstants.modelMatrix = self.modelMatrix
+    }
+    
 }
 
-extension GameObject: Renderable {
-	func doRender(renderCommandEncoder: MTLRenderCommandEncoder) {
-		renderCommandEncoder.setRenderPipelineState(Engine.shared.RenderState(.Basic))
-		renderCommandEncoder.setDepthStencilState(engine.DepthStencilStates(.Less))
-		// Vertex shader
-//		renderCommandEncoder.setVertexBuffer(mesh.vertexBuffer, offset: 0, index: 0)
-		renderCommandEncoder.setVertexBytes(&modelConstants, length: ModelConstants.stride, index: 2)
-		
-		//fragment shader
-		renderCommandEncoder.setFragmentBytes(&material, length: Material.stride, index: 1)
-		// draw function
-//		renderCommandEncoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: mesh.vertexCount)
-		mesh.drawPrimitives(renderCommandEncoder)
-	}
+extension GameObject: Renderable{
+    func doRender(_ renderCommandEncoder: MTLRenderCommandEncoder) {
+        renderCommandEncoder.setRenderPipelineState(Graphics.RenderPipelineStates[.Basic])
+        renderCommandEncoder.setDepthStencilState(Graphics.DepthStencilStates[.Less])
+        
+        //Vertex Shader
+        renderCommandEncoder.setVertexBytes(&modelConstants, length: ModelConstants.stride, index: 2)
+        
+        //Fragment Shader
+        renderCommandEncoder.setFragmentBytes(&material, length: Material.stride, index: 1)
+        
+        mesh.drawPrimitives(renderCommandEncoder)
+    }
 }
 
-// material properties
-extension GameObject{
-	public func setColor(_ color: simd_float4){
-		self.material.color = color
-		self.material.useMaterialColor = true
-	}
-}
+//Material Properties
+extension GameObject {
+    public func setColor(_ color: float4){
+        self.material.color = color
+        self.material.useMaterialColor = true
+    }
+ }
