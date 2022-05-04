@@ -7,7 +7,7 @@
 
 import Foundation
 import simd
-class SandboxScene: Scene{
+class SandboxScene: GameScene, Updateable {
     
     var debugCamera = DebugCamera()
     var quad = Quad()
@@ -19,7 +19,8 @@ class SandboxScene: Scene{
         addChild(quad)
     }
     
-    override func doUpdate() {
+    func doUpdate() {
+		GameTime.UpdateTime()
         quad.setPositionX(cos(GameTime.TotalGameTime))
     }
 

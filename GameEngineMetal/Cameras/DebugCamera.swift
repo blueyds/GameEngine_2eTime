@@ -7,7 +7,7 @@
 
 import simd
 
-class DebugCamera: Camera {
+class DebugCamera: Camera, Updateable {
     
     override var projectionMatrix: matrix_float4x4 {
         return matrix_float4x4.perspective(degreesFov: 45,
@@ -20,7 +20,7 @@ class DebugCamera: Camera {
         super.init(cameraType: .Debug)
     }
 
-    override func doUpdate() {
+    func doUpdate() {
         if(Keyboard.IsKeyPressed(.leftArrow)){
             self.moveX(-GameTime.DeltaTime)
         }

@@ -10,7 +10,7 @@ import MetalKit
 class Cube: GameObject, Updateable {
     
     init(){
-        super.init(meshType: .Cube_Custom)
+		super.init(meshType: .Cube_Custom)
         self.setName("Cube")
     }
     

@@ -18,9 +18,9 @@ class InstancedGameObject: Node {
     internal var _nodes: [Node] = []    
     private var _modelConstantBuffer: MTLBuffer!
     
-    init(meshType: MeshTypes, instanceCount: Int) {
+	init(meshType: Entities.Types, instanceCount: Int) {
         super.init(name: "Instanced Game Object")
-        self._mesh = Entities.Meshes[meshType]
+		self._mesh = Engine.shared.Mesh(meshType)
         self._mesh.setInstanceCount(instanceCount)
         self.generateInstances(instanceCount)
         self.createBuffers(instanceCount)
@@ -33,7 +33,7 @@ class InstancedGameObject: Node {
     }
     
     func createBuffers(_ instanceCount: Int) {
-        _modelConstantBuffer = Engine.Device.makeBuffer(length: ModelConstants.stride(instanceCount), options: [])
+		_modelConstantBuffer = Engine.shared.device.makeBuffer(length: ModelConstants.stride(instanceCount), options: [])
     }
     
     private func updateModelConstantsBuffer() {
@@ -52,8 +52,8 @@ class InstancedGameObject: Node {
 
 extension InstancedGameObject: Renderable {
     func doRender(_ renderCommandEncoder: MTLRenderCommandEncoder) {
-        renderCommandEncoder.setRenderPipelineState(Graphics.RenderPipelineStates[.Instanced])
-        renderCommandEncoder.setDepthStencilState(Graphics.DepthStencilStates[.Less])
+		renderCommandEncoder.setRenderPipelineState(Engine.shared.RenderState(.Instanced))
+		renderCommandEncoder.setDepthStencilState(Engine.shared.DepthStencilStates(.Less))
         
         //Vertex Shader
         renderCommandEncoder.setVertexBuffer(_modelConstantBuffer, offset: 0, index: 2)
@@ -67,7 +67,7 @@ extension InstancedGameObject: Renderable {
 
 //Material Properties
 extension InstancedGameObject {
-    public func setColor(_ color: float4){
+    public func setColor(_ color: simd_float4){
         self.material.color = color
         self.material.useMaterialColor = true
     }

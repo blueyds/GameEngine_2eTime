@@ -14,8 +14,8 @@ class GameObject: Node {
     
     var mesh: Mesh!
     
-    init(meshType: MeshTypes) {
-        mesh = Entities.Meshes[meshType]
+	init(meshType: Entities.Types) {
+		mesh = Engine.shared.Mesh(meshType)
     }
     
     override func update(){
@@ -31,8 +31,8 @@ class GameObject: Node {
 
 extension GameObject: Renderable{
     func doRender(_ renderCommandEncoder: MTLRenderCommandEncoder) {
-        renderCommandEncoder.setRenderPipelineState(Graphics.RenderPipelineStates[.Basic])
-        renderCommandEncoder.setDepthStencilState(Graphics.DepthStencilStates[.Less])
+		renderCommandEncoder.setRenderPipelineState(Engine.shared.RenderState(.Basic))
+		renderCommandEncoder.setDepthStencilState(Engine.shared.DepthStencilStates(.Less))
         
         //Vertex Shader
         renderCommandEncoder.setVertexBytes(&modelConstants, length: ModelConstants.stride, index: 2)
@@ -46,7 +46,7 @@ extension GameObject: Renderable{
 
 //Material Properties
 extension GameObject {
-    public func setColor(_ color: float4){
+    public func setColor(_ color: simd_float4){
         self.material.color = color
         self.material.useMaterialColor = true
     }

@@ -42,7 +42,7 @@ class Node{
 		}
 		for child in children {
 			child.parentModelMatrix = self.modelMatrix
-			child.update(deltaTime: deltaTime)
+			child.update()
 		}
 	}
 	
@@ -50,7 +50,7 @@ class Node{
 		renderCommandEncoder.pushDebugGroup("Rendering \(_name)")
 		
 		if let renderable = self as? Renderable {
-			renderable.doRender(renderCommandEncoder: renderCommandEncoder)
+			renderable.doRender(renderCommandEncoder)
 		}
 		for child in children {
 			child.render(renderCommandEncoder: renderCommandEncoder)

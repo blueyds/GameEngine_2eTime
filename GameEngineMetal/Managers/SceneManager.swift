@@ -27,9 +27,10 @@ class SceneManager {
 	}
 	
 	func updateScene(deltaTime: Float){
-		_currentScene.updateCameras(deltaTime: deltaTime)
+		//GameTime.UpdateTime(deltaTime)
+		_currentScene.updateCameras()
 		
-		_currentScene.update(deltaTime: deltaTime)
+		_currentScene.update()
 	}
 	
 	func renderScene(renderCommandEncoder: MTLRenderCommandEncoder){

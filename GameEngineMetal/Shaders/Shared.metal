@@ -1,4 +1,4 @@
-//#include <metal_stdlib>
+#include <metal_stdlib>
 
 struct VertexIn{
 	float3 position [[ attribute(0) ]];
@@ -9,11 +9,11 @@ struct RasterizerData{
 	float4 color;
 };
 struct ModelConstants{
-	float4x4 modelMatrix;
+	metal::float4x4 modelMatrix;
 };
 struct SceneConstants{
-	float4x4 viewMatrix;
-	float4x4 projectionMatrix;
+	metal::float4x4 viewMatrix;
+	metal::float4x4 projectionMatrix;
 };
 
 struct Material {

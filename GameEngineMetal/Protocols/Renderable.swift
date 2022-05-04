@@ -7,5 +7,5 @@
 
 import MetalKit
 protocol Renderable{
-	func doRender(renderCommandEncoder: MTLRenderCommandEncoder)
+	func doRender(_ renderCommandEncoder: MTLRenderCommandEncoder)
 }

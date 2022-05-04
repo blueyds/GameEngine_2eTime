@@ -16,7 +16,7 @@ final class Engine {
 	private let _descriptors: VertexDescriptorLibrary
 	private let _renderDescriptors: RenderDescriptorLibrary
 	private let _renderStates: RenderPipelineLibrary
-	private let _meshes: MeshLibrary
+	private let _meshes: Entities
 	private let _preferences: Preferences
 	private let _depthStencilStates: DepthStencilStateLibrary
 	
@@ -36,7 +36,7 @@ final class Engine {
 	func RenderState(_ renderPipelineStateType: RenderPipelineLibrary.Types)-> MTLRenderPipelineState {
 		_renderStates.renderState(renderPipelineStateType)
 	}
-	func Mesh(_ meshType: MeshLibrary.Types)->Mesh {
+	func Mesh(_ meshType: Entities.Types)->Mesh {
 		_meshes.mesh(meshType)
 	}
 	
@@ -56,7 +56,7 @@ final class Engine {
 		self._descriptors = VertexDescriptorLibrary()
 		self._renderDescriptors = RenderDescriptorLibrary(library: _shaders, vertexDescriptorLibrary: _descriptors, preferences: _preferences )
 		self._renderStates = RenderPipelineLibrary(device: device, descriptorLibrary: _renderDescriptors)
-		self._meshes = MeshLibrary(device: device)
+		self._meshes = Entities(device: device)
 		self._depthStencilStates = DepthStencilStateLibrary(device: device)
 	}
 }

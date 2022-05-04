@@ -15,7 +15,7 @@ protocol Mesh {
 	func drawPrimitives(_ renderCommandEncoder: MTLRenderCommandEncoder)
 }
 // TODO: rename entities
-class MeshLibrary {
+class Entities {
 	enum Types {
 		case Triangle_Custom
 		case Quad_Custom
@@ -37,6 +37,7 @@ class MeshLibrary {
 	public func mesh(_ meshType: Types)->Mesh{
 		_meshes[meshType]!
 	}
+	
 }
 
 
