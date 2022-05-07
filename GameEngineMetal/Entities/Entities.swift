@@ -9,9 +9,8 @@ import MetalKit
 
 
 protocol Mesh {
-	var vertexBuffer: MTLBuffer! {get}
 	var vertexCount: Int! {get}
-	func setInstanceCount(_ count: Int)
+	var instanceCount: Int { get set }
 	func drawPrimitives(_ renderCommandEncoder: MTLRenderCommandEncoder)
 }
 // TODO: rename entities

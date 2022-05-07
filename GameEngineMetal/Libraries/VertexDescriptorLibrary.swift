@@ -29,6 +29,8 @@ class VertexDescriptorLibrary {
 		basic.addAttribute(position: 0, format: .float3, offset: 0, bufferIndex: 0)
 		// color attributes
 		basic.addAttribute(position: 1, format: .float4, offset: simd_float3.size, bufferIndex: 0)
+		// texture attribures
+		basic.addAttribute(position: 2, format: .float2, offset: simd_float3.size + simd_float4.size, bufferIndex: 0)
 		// layout
 		basic.addLayout(stride: Vertex.stride)
 		vertexDescriptors.updateValue(basic, forKey: .Basic)
@@ -47,10 +49,7 @@ class VertexDescriptor {
 		vertexDescriptor = MTLVertexDescriptor()
 	}
 	func addAttribute(position: Int, format: MTLVertexFormat, offset: Int, bufferIndex: Int){
-		if position > 1 {
-			print("could not load attribute due to position out of bounds")
-			return
-		}
+		
 		vertexDescriptor.attributes[position].format = format
 		vertexDescriptor.attributes[position].offset = offset
 		vertexDescriptor.attributes[position].bufferIndex = bufferIndex

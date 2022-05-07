@@ -39,18 +39,19 @@ class Renderer: NSObject, MTKViewDelegate {
 		
 	func draw(in view: MTKView) {
 		scenes.updateScene(deltaTime: 1 / Float(view.preferredFramesPerSecond))
-		guard let drawable = view.currentDrawable else { return}
-		let commandBuffer = engine.commandQueue.makeCommandBuffer()
-		commandBuffer?.label = "My Command Buffer"
-		if view.currentRenderPassDescriptor != nil {
-			if let renderCommandEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: view.currentRenderPassDescriptor!) {
-				renderCommandEncoder.label = "First Render Command Encoder"
-				scenes.renderScene(renderCommandEncoder: renderCommandEncoder)
-				renderCommandEncoder.endEncoding()
-			}
+		//guard let drawable = view.currentDrawable else { return}
+		if let drawable = view.currentDrawable,
+		   let commandBuffer = engine.commandQueue.makeCommandBuffer(),
+		   let renderPassDescriptor = view.currentRenderPassDescriptor,
+		   let renderCommandEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor){
+			commandBuffer.label = "My Command Buffer"
+			// if view.currentRenderPassDescriptor != nil {
+			renderCommandEncoder.label = "First Render Command Encoder"
+			scenes.renderScene(renderCommandEncoder: renderCommandEncoder)
+			renderCommandEncoder.endEncoding()
+			commandBuffer.present(drawable)
+			commandBuffer.commit()
+			
 		}
-		
-		commandBuffer?.present(drawable)
-		commandBuffer?.commit()
 	}
 }

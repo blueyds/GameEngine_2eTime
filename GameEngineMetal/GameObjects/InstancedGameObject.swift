@@ -21,7 +21,7 @@ class InstancedGameObject: Node {
 	init(meshType: Entities.Types, instanceCount: Int) {
         super.init(name: "Instanced Game Object")
 		self._mesh = Engine.shared.Mesh(meshType)
-        self._mesh.setInstanceCount(instanceCount)
+        self._mesh.instanceCount = instanceCount
         self.generateInstances(instanceCount)
         self.createBuffers(instanceCount)
     }
