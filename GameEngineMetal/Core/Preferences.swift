@@ -18,7 +18,7 @@ class Preferences {
 	
 	static let shared: Preferences = Preferences()
 	let clearColor: MTLClearColor = ClearColors.White
-	let mainPixelFormat: MTLPixelFormat = MTLPixelFormat.bgra8Unorm
+	let mainPixelFormat: MTLPixelFormat = MTLPixelFormat.bgra8Unorm_srgb
 	let mainDepthPixelFormat: MTLPixelFormat = MTLPixelFormat.depth32Float
 	let framesPerSEcond: Int = 60
 	let startingSceneType: SceneManager.Types = .Sandbox

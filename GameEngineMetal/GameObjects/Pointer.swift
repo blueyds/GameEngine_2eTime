@@ -16,7 +16,7 @@ class Pointer: GameObject, Updateable {
         self.setName("Pointer")
     }
     
-    func doUpdate() {
+	func doUpdate(_ deltaTime: Float) {
         self.rotateZ(-atan2f(Mouse.GetMouseViewportPosition().x - getPositionX() + camera.getPositionX(),
                              Mouse.GetMouseViewportPosition().y - getPositionY() + camera.getPositionY()))
         

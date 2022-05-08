@@ -15,13 +15,15 @@ class SandboxScene: GameScene, Updateable {
         addCamera(debugCamera)
         
         debugCamera.setPositionZ(5)
-
+		quad.setTexture(.PartyPirateParot)
+		quad.scaleX(2.0)
+		quad.scaleY(2.0)
         addChild(quad)
     }
     
-    func doUpdate() {
-		GameTime.UpdateTime()
-        quad.setPositionX(cos(GameTime.TotalGameTime))
+	func doUpdate(_ deltaTime: Float) {
+		
+        quad.rotateY(deltaTime)
     }
 
  }

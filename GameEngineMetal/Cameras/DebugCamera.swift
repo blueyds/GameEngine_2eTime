@@ -20,21 +20,21 @@ class DebugCamera: Camera, Updateable {
         super.init(cameraType: .Debug)
     }
 
-    func doUpdate() {
+	func doUpdate(_ deltaTime: Float) {
         if(Keyboard.IsKeyPressed(.leftArrow)){
-            self.moveX(-GameTime.DeltaTime)
+            self.moveX(-deltaTime)
         }
         
         if(Keyboard.IsKeyPressed(.rightArrow)){
-            self.moveX(GameTime.DeltaTime)
+            self.moveX(deltaTime)
         }
         
         if(Keyboard.IsKeyPressed(.upArrow)){
-            self.moveY(GameTime.DeltaTime)
+            self.moveY(deltaTime)
         }
         
         if(Keyboard.IsKeyPressed(.downArrow)){
-            self.moveY(-GameTime.DeltaTime)
+            self.moveY(-deltaTime)
         }
     }
  }

@@ -21,13 +21,13 @@ class CubeCollection: InstancedGameObject, Updateable {
         setColor(ColorUtil.randomColor)
     }
     
-    func doUpdate() {
+	func doUpdate(_ deltaTime: Float) {
         let halfWide: Float = Float(cubesWide / 2)
         let halfHigh: Float = Float(cubesHigh / 2)
         let halfBack: Float = Float(cubesBack / 2)
         
         var index: Int = 0
-        let gap: Float = cos(GameTime.TotalGameTime / 2) * 10
+        let gap: Float = cos(deltaTime / 2) * 10
         for y in stride(from: -halfHigh, to: halfHigh, by: 1.0) {
             let posY = Float(y * gap)
             for x in stride(from: -halfWide, to: halfWide, by: 1.0) {
@@ -36,7 +36,7 @@ class CubeCollection: InstancedGameObject, Updateable {
                     let posZ = Float(z * gap)
                     let node = _nodes[index]
                     node.setPosition(simd_float3(posX, posY, posZ))
-                    node.rotate(0, -GameTime.DeltaTime * 2, -GameTime.DeltaTime * 2)
+                    node.rotate(0, -deltaTime * 2, -deltaTime * 2)
                     node.setScale(0.3)
                     index += 1
                 }

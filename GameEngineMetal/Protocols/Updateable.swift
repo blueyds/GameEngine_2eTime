@@ -1,3 +1,3 @@
 protocol Updateable{
-	func doUpdate()
+	func doUpdate(_ deltaTime: Float)
 }

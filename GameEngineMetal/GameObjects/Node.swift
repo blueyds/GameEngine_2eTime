@@ -38,7 +38,7 @@ class Node{
 	
 	func update(){
 		if let updateable = self as? Updateable {
-			updateable.doUpdate()
+			updateable.doUpdate(GameTime.DeltaTime)
 		}
 		for child in children {
 			child.parentModelMatrix = self.modelMatrix

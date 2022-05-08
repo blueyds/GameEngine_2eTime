@@ -14,8 +14,8 @@ class Cube: GameObject, Updateable {
         self.setName("Cube")
     }
     
-    func doUpdate() {
-        self.rotateX(GameTime.DeltaTime)
-        self.rotateY(GameTime.DeltaTime)
+	func doUpdate(_ deltaTime: Float) {
+        self.rotateX(deltaTime)
+        self.rotateY(deltaTime)
     }
  }
