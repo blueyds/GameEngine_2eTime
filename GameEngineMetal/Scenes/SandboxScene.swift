@@ -10,20 +10,23 @@ import simd
 class SandboxScene: GameScene, Updateable {
     
     var debugCamera = DebugCamera()
-    var quad = Quad()
-    override func buildScene() {
+    var cruiser = Cruiser()
+	override func buildScene() {
         addCamera(debugCamera)
         
         debugCamera.setPositionZ(5)
-		quad.setTexture(.PartyPirateParot)
-		quad.scaleX(2.0)
-		quad.scaleY(2.0)
-        addChild(quad)
+		
+		cruiser.setTexture(.Cruiser)
+        addChild(cruiser)
     }
     
 	func doUpdate(_ deltaTime: Float) {
 		
-        quad.rotateY(deltaTime)
+		if Mouse.IsMouseButtonPressed(button: .left){
+			cruiser.rotateX(Mouse.GetDY() * deltaTime)
+			cruiser.rotateY(Mouse.GetDX() * deltaTime)
+		}
+		
     }
 
  }

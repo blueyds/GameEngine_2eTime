@@ -65,7 +65,7 @@ final class Engine {
 		self._descriptors = VertexDescriptorLibrary()
 		self._renderDescriptors = RenderDescriptorLibrary(library: _shaders, vertexDescriptorLibrary: _descriptors, preferences: _preferences )
 		self._renderStates = RenderPipelineLibrary(device: device, descriptorLibrary: _renderDescriptors)
-		self._meshes = Entities(device: device)
+		self._meshes = Entities(device: device, vertexDescriptorLibrary: self._descriptors)
 		self._depthStencilStates = DepthStencilStateLibrary(device: device)
 		self._textures = TextureLibrary(device: device)
 		self._samplerStates = SamplerStateLibrary(device: device)

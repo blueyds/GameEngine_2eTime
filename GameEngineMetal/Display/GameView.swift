@@ -26,7 +26,7 @@ struct GameView: NSViewRepresentable{
 		mtkView.enableSetNeedsDisplay = false
 		mtkView.isPaused = false
 		mtkView.device =  engine.device
-		mtkView.framebufferOnly = false
+		mtkView.framebufferOnly = true
 		mtkView.clearColor = preferences.clearColor
 		mtkView.colorPixelFormat = preferences.mainPixelFormat
 		mtkView.depthStencilPixelFormat = preferences.mainDepthPixelFormat

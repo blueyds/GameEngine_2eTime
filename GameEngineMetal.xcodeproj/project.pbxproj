@@ -21,6 +21,11 @@
 		D1287A16281F5107004E5DA5 /* Quad.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1287A15281F5107004E5DA5 /* Quad.swift */; };
 		D12CE710282735A400969AC1 /* TextureLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12CE70F282735A400969AC1 /* TextureLibrary.swift */; };
 		D12CE71228273BAF00969AC1 /* SamplerStateLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12CE71128273BAF00969AC1 /* SamplerStateLibrary.swift */; };
+		D12CE717282751A700969AC1 /* cruiser.obj in Resources */ = {isa = PBXBuildFile; fileRef = D12CE714282751A600969AC1 /* cruiser.obj */; };
+		D12CE718282751A700969AC1 /* cruiser.mtl.txt in Resources */ = {isa = PBXBuildFile; fileRef = D12CE715282751A700969AC1 /* cruiser.mtl.txt */; };
+		D12CE719282751A700969AC1 /* cruiser.bmp in Resources */ = {isa = PBXBuildFile; fileRef = D12CE716282751A700969AC1 /* cruiser.bmp */; };
+		D12CE71B282752CC00969AC1 /* ModelMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12CE71A282752CC00969AC1 /* ModelMesh.swift */; };
+		D12CE71D282765D200969AC1 /* Cruiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12CE71C282765D200969AC1 /* Cruiser.swift */; };
 		D140985528162FAE00DA299A /* RenderPipelineState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140985328162FAE00DA299A /* RenderPipelineState.swift */; };
 		D140985628162FAE00DA299A /* RenderDescriptorLibary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140985428162FAE00DA299A /* RenderDescriptorLibary.swift */; };
 		D144F7382814A0CB009EBD0D /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D144F7372814A0CB009EBD0D /* Engine.swift */; };
@@ -95,6 +100,11 @@
 		D1287A15281F5107004E5DA5 /* Quad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quad.swift; sourceTree = "<group>"; };
 		D12CE70F282735A400969AC1 /* TextureLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureLibrary.swift; sourceTree = "<group>"; };
 		D12CE71128273BAF00969AC1 /* SamplerStateLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplerStateLibrary.swift; sourceTree = "<group>"; };
+		D12CE714282751A600969AC1 /* cruiser.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cruiser.obj; sourceTree = "<group>"; };
+		D12CE715282751A700969AC1 /* cruiser.mtl.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cruiser.mtl.txt; sourceTree = "<group>"; };
+		D12CE716282751A700969AC1 /* cruiser.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = cruiser.bmp; sourceTree = "<group>"; };
+		D12CE71A282752CC00969AC1 /* ModelMesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMesh.swift; sourceTree = "<group>"; };
+		D12CE71C282765D200969AC1 /* Cruiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cruiser.swift; sourceTree = "<group>"; };
 		D140985328162FAE00DA299A /* RenderPipelineState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderPipelineState.swift; sourceTree = "<group>"; };
 		D140985428162FAE00DA299A /* RenderDescriptorLibary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderDescriptorLibary.swift; sourceTree = "<group>"; };
 		D144F7372814A0CB009EBD0D /* Engine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
@@ -229,6 +239,16 @@
 			path = GameEngineMetalUITests;
 			sourceTree = "<group>";
 		};
+		D12CE7132827511D00969AC1 /* cruiser */ = {
+			isa = PBXGroup;
+			children = (
+				D12CE716282751A700969AC1 /* cruiser.bmp */,
+				D12CE715282751A700969AC1 /* cruiser.mtl.txt */,
+				D12CE714282751A600969AC1 /* cruiser.obj */,
+			);
+			path = cruiser;
+			sourceTree = "<group>";
+		};
 		D144F730281462E1009EBD0D /* Other */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +322,7 @@
 				D1287A11281F2EF7004E5DA5 /* InstancedGameObject.swift */,
 				D1287A13281F3F1B004E5DA5 /* CubeCollection.swift */,
 				D1287A15281F5107004E5DA5 /* Quad.swift */,
+				D12CE71C282765D200969AC1 /* Cruiser.swift */,
 			);
 			path = GameObjects;
 			sourceTree = "<group>";
@@ -361,6 +382,7 @@
 		D1FD1EBF282210CC00F1BCF3 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				D12CE71A282752CC00969AC1 /* ModelMesh.swift */,
 				D1FD1EC0282210CC00F1BCF3 /* CustomMesh.swift */,
 				D1FD1EC1282210CC00F1BCF3 /* Triangle_CustomMesh.swift */,
 				D1FD1EC2282210CC00F1BCF3 /* Quad_CustomMesh.swift */,
@@ -382,6 +404,7 @@
 		D1FD1F902827325000F1BCF3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D12CE7132827511D00969AC1 /* cruiser */,
 				D1FD1F912827333400F1BCF3 /* PartyPirateParot.png */,
 			);
 			path = Resources;
@@ -491,9 +514,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D12CE718282751A700969AC1 /* cruiser.mtl.txt in Resources */,
 				D10E61DE28123E7B00EDC156 /* Preview Assets.xcassets in Resources */,
+				D12CE717282751A700969AC1 /* cruiser.obj in Resources */,
 				D10E61DB28123E7B00EDC156 /* Assets.xcassets in Resources */,
 				D1FD1F922827333400F1BCF3 /* PartyPirateParot.png in Resources */,
+				D12CE719282751A700969AC1 /* cruiser.bmp in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +553,7 @@
 				D10E62042812484E00EDC156 /* Renderer.swift in Sources */,
 				D1FD1EC7282210CC00F1BCF3 /* Quad_CustomMesh.swift in Sources */,
 				D1287A12281F2EF7004E5DA5 /* InstancedGameObject.swift in Sources */,
+				D12CE71D282765D200969AC1 /* Cruiser.swift in Sources */,
 				D16C1E39281C46BD00E58127 /* CameraManager.swift in Sources */,
 				D16C1E13281B04E200E58127 /* GameObject.swift in Sources */,
 				D16C1E37281C40B500E58127 /* DebugCamera.swift in Sources */,
@@ -556,6 +583,7 @@
 				D16C1E35281C3FA200E58127 /* Camera.swift in Sources */,
 				D16C1E25281B55B700E58127 /* SandboxScene.swift in Sources */,
 				D144F7382814A0CB009EBD0D /* Engine.swift in Sources */,
+				D12CE71B282752CC00969AC1 /* ModelMesh.swift in Sources */,
 				D16C1E30281B7D9200E58127 /* Mouse.swift in Sources */,
 				D1FD1ECF282211E900F1BCF3 /* MetalTypes.swift in Sources */,
 				D1FD1EC6282210CC00F1BCF3 /* Triangle_CustomMesh.swift in Sources */,

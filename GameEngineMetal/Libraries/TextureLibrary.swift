@@ -11,6 +11,7 @@ class TextureLibrary {
 	enum Types {
 		case None
 		case PartyPirateParot
+		case Cruiser
 	}
 	let _device: MTLDevice
 	private var _textures: [Types : Texture] = [:]
@@ -21,6 +22,7 @@ class TextureLibrary {
 	}
 	private func createDefaultTextures(){
 		addTexture(name: "PartyPirateParot", forKey: .PartyPirateParot)
+		addTexture(name: "cruiser", ext: "bmp", origin: .bottomLeft, forKey: .Cruiser)
 	}
 	private func addTexture(name: String, ext: String = "png", origin: MTKTextureLoader.Origin = .topLeft, forKey: Types){
 		_textures.updateValue(Texture(name, ext: ext, origin: origin, device: _device), forKey: forKey )
