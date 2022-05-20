@@ -16,13 +16,13 @@
 		D10E61F528123E7B00EDC156 /* GameEngineMetalUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E61F428123E7B00EDC156 /* GameEngineMetalUITestsLaunchTests.swift */; };
 		D10E62022812436A00EDC156 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E62012812436A00EDC156 /* GameView.swift */; };
 		D10E62042812484E00EDC156 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E62032812484E00EDC156 /* Renderer.swift */; };
+		D1219CE428372BBB00095148 /* cruiser.mtl in Resources */ = {isa = PBXBuildFile; fileRef = D1219CE328372BBB00095148 /* cruiser.mtl */; };
 		D1287A12281F2EF7004E5DA5 /* InstancedGameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1287A11281F2EF7004E5DA5 /* InstancedGameObject.swift */; };
 		D1287A14281F3F1B004E5DA5 /* CubeCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1287A13281F3F1B004E5DA5 /* CubeCollection.swift */; };
 		D1287A16281F5107004E5DA5 /* Quad.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1287A15281F5107004E5DA5 /* Quad.swift */; };
 		D12CE710282735A400969AC1 /* TextureLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12CE70F282735A400969AC1 /* TextureLibrary.swift */; };
 		D12CE71228273BAF00969AC1 /* SamplerStateLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12CE71128273BAF00969AC1 /* SamplerStateLibrary.swift */; };
 		D12CE717282751A700969AC1 /* cruiser.obj in Resources */ = {isa = PBXBuildFile; fileRef = D12CE714282751A600969AC1 /* cruiser.obj */; };
-		D12CE718282751A700969AC1 /* cruiser.mtl.txt in Resources */ = {isa = PBXBuildFile; fileRef = D12CE715282751A700969AC1 /* cruiser.mtl.txt */; };
 		D12CE719282751A700969AC1 /* cruiser.bmp in Resources */ = {isa = PBXBuildFile; fileRef = D12CE716282751A700969AC1 /* cruiser.bmp */; };
 		D12CE71B282752CC00969AC1 /* ModelMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12CE71A282752CC00969AC1 /* ModelMesh.swift */; };
 		D12CE71D282765D200969AC1 /* Cruiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12CE71C282765D200969AC1 /* Cruiser.swift */; };
@@ -95,13 +95,13 @@
 		D10E61F428123E7B00EDC156 /* GameEngineMetalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngineMetalUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D10E62012812436A00EDC156 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		D10E62032812484E00EDC156 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		D1219CE328372BBB00095148 /* cruiser.mtl */ = {isa = PBXFileReference; lastKnownFileType = file; name = cruiser.mtl; path = GameEngineMetal/Resources/Cruiser/cruiser.mtl; sourceTree = SOURCE_ROOT; };
 		D1287A11281F2EF7004E5DA5 /* InstancedGameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstancedGameObject.swift; sourceTree = "<group>"; };
 		D1287A13281F3F1B004E5DA5 /* CubeCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeCollection.swift; sourceTree = "<group>"; };
 		D1287A15281F5107004E5DA5 /* Quad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quad.swift; sourceTree = "<group>"; };
 		D12CE70F282735A400969AC1 /* TextureLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureLibrary.swift; sourceTree = "<group>"; };
 		D12CE71128273BAF00969AC1 /* SamplerStateLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplerStateLibrary.swift; sourceTree = "<group>"; };
 		D12CE714282751A600969AC1 /* cruiser.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cruiser.obj; sourceTree = "<group>"; };
-		D12CE715282751A700969AC1 /* cruiser.mtl.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cruiser.mtl.txt; sourceTree = "<group>"; };
 		D12CE716282751A700969AC1 /* cruiser.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = cruiser.bmp; sourceTree = "<group>"; };
 		D12CE71A282752CC00969AC1 /* ModelMesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMesh.swift; sourceTree = "<group>"; };
 		D12CE71C282765D200969AC1 /* Cruiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cruiser.swift; sourceTree = "<group>"; };
@@ -242,8 +242,8 @@
 		D12CE7132827511D00969AC1 /* cruiser */ = {
 			isa = PBXGroup;
 			children = (
+				D1219CE328372BBB00095148 /* cruiser.mtl */,
 				D12CE716282751A700969AC1 /* cruiser.bmp */,
-				D12CE715282751A700969AC1 /* cruiser.mtl.txt */,
 				D12CE714282751A600969AC1 /* cruiser.obj */,
 			);
 			path = cruiser;
@@ -514,12 +514,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D12CE718282751A700969AC1 /* cruiser.mtl.txt in Resources */,
 				D10E61DE28123E7B00EDC156 /* Preview Assets.xcassets in Resources */,
 				D12CE717282751A700969AC1 /* cruiser.obj in Resources */,
 				D10E61DB28123E7B00EDC156 /* Assets.xcassets in Resources */,
 				D1FD1F922827333400F1BCF3 /* PartyPirateParot.png in Resources */,
 				D12CE719282751A700969AC1 /* cruiser.bmp in Resources */,
+				D1219CE428372BBB00095148 /* cruiser.mtl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
