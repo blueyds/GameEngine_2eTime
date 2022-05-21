@@ -9,17 +9,18 @@ import MetalKit
 
 
 protocol Mesh {
-	var vertexCount: Int! {get}
-	var instanceCount: Int { get set }
+	func setInstanceCount(_ count: Int)
 	func drawPrimitives(_ renderCommandEncoder: MTLRenderCommandEncoder)
 }
 // TODO: rename entities
 class Entities {
 	enum Types {
+		case None
 		case Triangle_Custom
 		case Quad_Custom
 		case Cube_Custom
 		case Cruiser
+		case Sphere
 	}
 	private var _meshes: [Types:Mesh] = [:]
 	private var _device: MTLDevice!
@@ -31,10 +32,12 @@ class Entities {
 		createDefaultMeshes()
 	}
 	private func createDefaultMeshes(){
+		_meshes.updateValue(NoMesh(), forKey: .None)
 		_meshes.updateValue(Triangle_CustomMesh(device: _device), forKey: .Triangle_Custom)
 		_meshes.updateValue(Quad_CustomMesh(device: _device), forKey: .Quad_Custom)
 		_meshes.updateValue(Cube_CustomMesh(device: _device), forKey: .Cube_Custom)
 		loadModelMesh(modelName: "cruiser", forKey: .Cruiser)
+		loadModelMesh(modelName: "sphere", forKey: .Sphere)
 		
 	}
 	private func loadModelMesh(modelName: String, ext: String = "obj", forKey: Types){

@@ -11,9 +11,12 @@ class SandboxScene: GameScene, Updateable {
     
     var debugCamera = DebugCamera()
     var cruiser = Cruiser()
+	var sun = Sun()
+	
 	override func buildScene() {
         addCamera(debugCamera)
-        
+		sun.setPosition(simd_float3(0, 2, 2))
+		addLight(sun)
         debugCamera.setPositionZ(5)
 		
 		cruiser.setTexture(.Cruiser)

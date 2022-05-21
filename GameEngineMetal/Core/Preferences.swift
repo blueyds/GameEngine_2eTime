@@ -17,7 +17,7 @@ class Preferences {
 	}
 	
 	static let shared: Preferences = Preferences()
-	let clearColor: MTLClearColor = ClearColors.White
+	let clearColor: MTLClearColor = ClearColors.Black
 	let mainPixelFormat: MTLPixelFormat = MTLPixelFormat.bgra8Unorm_srgb
 	let mainDepthPixelFormat: MTLPixelFormat = MTLPixelFormat.depth32Float
 	let framesPerSEcond: Int = 60

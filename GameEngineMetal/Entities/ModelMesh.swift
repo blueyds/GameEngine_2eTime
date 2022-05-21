@@ -8,10 +8,11 @@
 import MetalKit
 
 class ModelMesh: Mesh {
+	
+	
 	private var _meshes: [Any]!
 	var vertexCount: Int!
 	
-	var instanceCount: Int = 1
 	
 	init(modelName: String,
 		 ext: String = "obj",
@@ -21,6 +22,11 @@ class ModelMesh: Mesh {
 				  ext: ext,
 				  vertexDescriptor: vertexDescriptor,
 				  device: device)
+	}
+	
+	var instanceCount: Int = 1
+	func setInstanceCount(_ count: Int) {
+		instanceCount = count
 	}
 	
 	private func loadModel(modelName:String,

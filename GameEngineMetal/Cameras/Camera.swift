@@ -15,6 +15,9 @@ class Camera: Node {
     
     var viewMatrix: matrix_float4x4 {
         var viewMatrix = matrix_identity_float4x4
+		viewMatrix.rotate(angle: getRotationX(), axis: .x)
+		viewMatrix.rotate(angle: getRotationY(), axis: .y)
+		viewMatrix.rotate(angle: getRotationZ(), axis: .z)
         viewMatrix.translate(direction: -getPosition())
         return viewMatrix
     }
