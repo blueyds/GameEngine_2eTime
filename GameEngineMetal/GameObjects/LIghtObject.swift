@@ -7,7 +7,7 @@
 
 import MetalKit
 
-class LightObject: GameObject {
+class LightEntit: GameObject {
 	
 	var lightData = LightData()
 	

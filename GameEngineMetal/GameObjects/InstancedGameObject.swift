@@ -25,7 +25,11 @@ class InstancedGameObject: Node {
         generateInstances(instanceCount)
         createBuffers(instanceCount)
     }
-    
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
     func generateInstances(_ instanceCount: Int){
         for _ in 0..<instanceCount {
             _nodes.append(Node())
@@ -44,10 +48,9 @@ class InstancedGameObject: Node {
         }
     }
 
-    override func update() {
-        updateModelConstantsBuffer()
-        super.update()
-    }
+//    override func doUpdate() {
+//        updateModelConstantsBuffer()
+//	}
 }
 
 extension InstancedGameObject: Renderable {

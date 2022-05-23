@@ -6,23 +6,32 @@
 //
 
 import MetalKit
+import GameplayKit
 class LightManager {
-	private var _lightObjects: [LightObject] = []
+	//private var _lightObjects: [LightObject] = []
+	var _components = GKComponentSystem<LightComponent>()
 	
-	func addLightObject(_ lightObject: LightObject){
-		_lightObjects.append(lightObject)
+	init (){
+		_components = GKComponentSystem<LightComponent>(componentClass: LightComponent.self)
 	}
-	
-	private func gatherLightData()->[LightData] {
-		var result: [LightData] = []
-		for lightObject in _lightObjects {
-			result.append(lightObject.lightData)
-		}
-		return result
-	}
+
 	
 	func setLightData(_ renderCommandEncoder: MTLRenderCommandEncoder) {
-		var lightDatas = gatherLightData()
+		var lightDatas: [LightData] = []
+		_components.components.forEach(){
+			lightDatas.append($0.lightData)
+		}
 		renderCommandEncoder.setFragmentBytes(&lightDatas, length: LightData.size(lightDatas.count), index: 2)
+	}
+	func updateAll(deltaTime: TimeInterval){
+		
+	}
+	
+	func addComponent(foundIn fromNode: Node){
+		_components.addComponent(foundIn: fromNode)
+		print("Light system has \(_components.components.count) lights")
+	}
+	func removeComponent(foundIn fromNode: Node){
+		_components.removeComponent(foundIn: fromNode)
 	}
 }

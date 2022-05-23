@@ -4,7 +4,7 @@
 //
 //  Created by Craig Nunemaker on 4/29/22.
 //
-
+import Foundation
 import simd
 
 enum CameraTypes {
@@ -30,4 +30,8 @@ class Camera: Node {
         super.init(name: "Camera")
         self.cameraType = cameraType
     }
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 }

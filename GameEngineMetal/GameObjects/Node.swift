@@ -6,10 +6,10 @@
 //
 
 import MetalKit
-
-class Node{
+import GameplayKit
+class Node: GKEntity, Identifiable{
 	private var _name: String = "Node"
-	private var _id: String
+	let id = UUID()
 	
 	private var _position: simd_float3 = simd_float3(repeating: 0)
 	private var _scale: simd_float3 = simd_float3(repeating: 1)
@@ -30,40 +30,34 @@ class Node{
 	
 	init(name: String = "Node"){
 		self._name = name
-		self._id = UUID().uuidString
+		super.init()
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
 	}
 	func addChild(_ child: Node){
 		children.append(child)
 	}
 	
-	func update(){
-		if let updateable = self as? Updateable {
-			updateable.doUpdate(GameTime.DeltaTime)
-		}
+	
+	func updateChildrenMatrix(){
+//		if let updateable = self as? Updateable {
+//			updateable.doUpdate(GameTime.DeltaTime)
+//		}
 		for child in children {
+			child.updateChildrenMatrix()
 			child.parentModelMatrix = self.modelMatrix
-			child.update()
 		}
 	}
 	
-	func render(renderCommandEncoder: MTLRenderCommandEncoder){
-		renderCommandEncoder.pushDebugGroup("Rendering \(_name)")
-		
-		if let renderable = self as? Renderable {
-			renderable.doRender(renderCommandEncoder)
-		}
-		for child in children {
-			child.render(renderCommandEncoder: renderCommandEncoder)
-		}
-		renderCommandEncoder.popDebugGroup()
-	}
 }
-
+// General translation extensions
 extension Node {
 	//Naming
 	func setName(_ name: String){ self._name = name }
 	func getName()->String{ return _name }
-	func getID()->String { return _id }
+	func getID()->String { return id.uuidString }
 	
 	//Positioning and Movement
 	func setPosition(_ position: simd_float3){ self._position = position }
@@ -106,4 +100,57 @@ extension Node {
 	func scaleX(_ delta: Float){ self._scale.x += delta }
 	func scaleY(_ delta: Float){ self._scale.y += delta }
 	func scaleZ(_ delta: Float){ self._scale.z += delta }
+}
+
+// Mesh Extensions
+extension  Node {
+	func addMesh(_ meshType: Entities.Types, count: Int){
+		// MARK: Todo add InstancedMeshComponent
+		let component = MeshComponent(meshType: meshType, instanceCount: count)
+		addComponent(component)
+	}
+	func addMesh(_ meshType: Entities.Types){
+		let component = MeshComponent(meshType: meshType)
+		addComponent(component)
+	}
+	func removeMesh(){
+		removeComponent(ofType: MeshComponent.self)
+	}
+	var Mesh: MeshComponent? {
+		if let mesh = component(ofType: MeshComponent.self) {
+			return mesh
+		}
+		return nil
+	}
+}
+
+// Light Extensions
+extension Node {
+	func addLight() {
+		let component = LightComponent()
+		addComponent(component)
+		
+	}
+	func removeLIght(){
+		removeComponent(ofType: LightComponent.self)
+	}
+}
+
+// Camera extensions
+extension Node {
+	func addCamera(_ cameraType: CameraComponent.Types) {
+		let component = CameraComponent(cameraType: cameraType)
+		addComponent(component)
+	}
+	func addCamera(_ cameraType: CameraComponent.Types, zoom: Float, aspectRatio: Float, near: Float, far: Float){
+		let component = CameraComponent(cameraType: cameraType, zoom: zoom, aspectRatio: aspectRatio, near: near, far: far)
+		addComponent(component)
+	}
+//	func addCamera(_ cameraType: CameraComponent.Types) {
+//		let component = CameraComponent(cameraType: cameraType)
+//		addComponent(component)
+//	}
+	func removeCamera(){
+		removeComponent(ofType: CameraComponent.self)
+	}
 }

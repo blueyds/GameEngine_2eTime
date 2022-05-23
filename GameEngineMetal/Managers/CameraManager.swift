@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import GameplayKit
 
 class CameraManager {
-	private var _cameras: [CameraTypes : Camera] = [:]
+	private var _cameras: GKComponentSystem<CameraComponent>
 	
 	var currentCamera: Camera!
 	

@@ -7,7 +7,7 @@
 
 import simd
 
-class DebugCamera: Camera, Updateable {
+class DebugCamera: Camera {
 	private var _zoom: Float = 45.0
     override var projectionMatrix: matrix_float4x4 {
         return matrix_float4x4.perspective(degreesFov: _zoom,
@@ -19,23 +19,25 @@ class DebugCamera: Camera, Updateable {
     init() {
         super.init(cameraType: .Debug)
     }
-
-	func doUpdate(_ deltaTime: Float) {
-        if(Keyboard.IsKeyPressed(.leftArrow)){
-            self.moveX(-deltaTime)
-        }
-        
-        if(Keyboard.IsKeyPressed(.rightArrow)){
-            self.moveX(deltaTime)
-        }
-        
-        if(Keyboard.IsKeyPressed(.upArrow)){
-            self.moveY(deltaTime)
-        }
-        
-        if(Keyboard.IsKeyPressed(.downArrow)){
-            self.moveY(-deltaTime)
-        }
-		self._zoom -= Mouse.GetDWheel()
-    }
- }
+	
+	
+	
+//	func doUpdate(_ deltaTime: Float) {
+//        if(Keyboard.IsKeyPressed(.leftArrow)){
+//            self.moveX(-deltaTime)
+//        }
+//
+//        if(Keyboard.IsKeyPressed(.rightArrow)){
+//            self.moveX(deltaTime)
+//        }
+//
+//        if(Keyboard.IsKeyPressed(.upArrow)){
+//            self.moveY(deltaTime)
+//        }
+//
+//        if(Keyboard.IsKeyPressed(.downArrow)){
+//            self.moveY(-deltaTime)
+//        }
+//		self._zoom -= Mouse.GetDWheel()
+//    }
+// }

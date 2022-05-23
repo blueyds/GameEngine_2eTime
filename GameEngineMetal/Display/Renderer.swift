@@ -38,7 +38,8 @@ class Renderer: NSObject, MTKViewDelegate {
 	}
 		
 	func draw(in view: MTKView) {
-		scenes.updateScene(deltaTime: 1 / Float(view.preferredFramesPerSecond))
+		GameTime.UpdateTime()
+		scenes.updateScene(deltaTime: GameTime.DeltaTime)
 		//guard let drawable = view.currentDrawable else { return}
 		if let drawable = view.currentDrawable,
 		   let commandBuffer = engine.commandQueue.makeCommandBuffer(),
