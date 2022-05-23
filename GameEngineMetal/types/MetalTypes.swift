@@ -32,6 +32,14 @@ extension simd_float4: sizeable {}
 extension simd_float2: sizeable {}
 extension Float: sizeable {}
 
+extension TimeInterval {
+ var Milliseconds:Float{
+  Float(self * 1000)
+ }
+ var RatePerSecond:Float{
+  Float(1 / self)
+ }
+}
 
 struct Vertex: sizeable {
 	var position: simd_float3
