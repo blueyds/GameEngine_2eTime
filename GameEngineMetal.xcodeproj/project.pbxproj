@@ -47,7 +47,7 @@
 		D16C1E3D281C677200E58127 /* DepthStencilStateLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16C1E3C281C677200E58127 /* DepthStencilStateLibrary.swift */; };
 		D16C1E40281C76C700E58127 /* ColorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16C1E3F281C76C700E58127 /* ColorUtil.swift */; };
 		D1816F55283AD7820074FD5B /* DebugCameraInputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1816F54283AD7820074FD5B /* DebugCameraInputComponent.swift */; };
-		D1816F57283ADDF30074FD5B /* CruiserInputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1816F56283ADDF30074FD5B /* CruiserInputComponent.swift */; };
+		D1D803AE283B264F009BF201 /* CruiserInputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D803AD283B264F009BF201 /* CruiserInputComponent.swift */; };
 		D1FD1EB92822104200F1BCF3 /* InstancedShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = D1FD1EB82822104200F1BCF3 /* InstancedShaders.metal */; };
 		D1FD1EBB2822105000F1BCF3 /* Shared.metal in Sources */ = {isa = PBXBuildFile; fileRef = D1FD1EBA2822105000F1BCF3 /* Shared.metal */; };
 		D1FD1EBD2822105700F1BCF3 /* BasicShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = D1FD1EBC2822105700F1BCF3 /* BasicShaders.metal */; };
@@ -124,7 +124,7 @@
 		D16C1E3C281C677200E58127 /* DepthStencilStateLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepthStencilStateLibrary.swift; sourceTree = "<group>"; };
 		D16C1E3F281C76C700E58127 /* ColorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorUtil.swift; sourceTree = "<group>"; };
 		D1816F54283AD7820074FD5B /* DebugCameraInputComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugCameraInputComponent.swift; sourceTree = "<group>"; };
-		D1816F56283ADDF30074FD5B /* CruiserInputComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CruiserInputComponent.swift; sourceTree = "<group>"; };
+		D1D803AD283B264F009BF201 /* CruiserInputComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CruiserInputComponent.swift; sourceTree = "<group>"; };
 		D1FD1EB82822104200F1BCF3 /* InstancedShaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = InstancedShaders.metal; sourceTree = "<group>"; };
 		D1FD1EBA2822105000F1BCF3 /* Shared.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shared.metal; sourceTree = "<group>"; };
 		D1FD1EBC2822105700F1BCF3 /* BasicShaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = BasicShaders.metal; sourceTree = "<group>"; };
@@ -260,7 +260,7 @@
 				D12FB6122839A00D000C4894 /* LIghtComponent.swift */,
 				D12FB6142839C457000C4894 /* CameraComponent.swift */,
 				D1816F54283AD7820074FD5B /* DebugCameraInputComponent.swift */,
-				D1816F56283ADDF30074FD5B /* CruiserInputComponent.swift */,
+				D1D803AD283B264F009BF201 /* CruiserInputComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -550,7 +550,7 @@
 			files = (
 				D10E62022812436A00EDC156 /* GameView.swift in Sources */,
 				D140985528162FAE00DA299A /* RenderPipelineState.swift in Sources */,
-				D1816F57283ADDF30074FD5B /* CruiserInputComponent.swift in Sources */,
+				D1D803AE283B264F009BF201 /* CruiserInputComponent.swift in Sources */,
 				D16C1E40281C76C700E58127 /* ColorUtil.swift in Sources */,
 				D16C1E23281B540700E58127 /* Scene.swift in Sources */,
 				D12FB61128399BC1000C4894 /* MeshManager.swift in Sources */,
