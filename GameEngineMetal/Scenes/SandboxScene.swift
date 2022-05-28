@@ -11,34 +11,66 @@ class SandboxScene: GameScene {
     
     var pointer = Node()
     var cruiser = Node()
-	var sun = Node()
-	var triangle = Node()
+	var leftSun = Node()
+	var middleSun = Node()
+	var rightSun = Node()
+	
 	
 	override func buildScene() {
-		addMeshComponent(.Sphere, toChild: sun)
-		if let mesh = sun.Mesh {
-			mesh.setColor(simd_float4(0.5,0.5,0,1))
-		}
-		sun.setName("sun")
-		sun.setPosition(simd_float3(1,1,1))
-		sun.setScale(0.1)
-		addChild(sun)
+		pointer.setPosition(simd_float3(0,0,6))
 		addCameraComponent(toChild: pointer, cameraType: .Debug, zoom: 45, aspectRatio: 1, near: 0.1, far: 1000	)
-		addChild(pointer)
 		pointer.addComponent(DebugCameraInputComponent())
+		addChild(pointer)
 		
+		
+		leftSun.setPosition(simd_float3(-1,1,0))
+		addMeshComponent(.Sphere, toChild: leftSun)
+		if let mesh = leftSun.component(ofType: MeshComponent.self) {
+			mesh.setMaterialIsLit(false)
+			mesh.setMaterialColor(simd_float4(1,0,0,1))
+		}
+		addLightComponent(toChild: leftSun)
+		if let light =  leftSun.component(ofType: LightComponent.self){
+			light.setLightColor(simd_float3(1,0,0))
+		}
+		leftSun.setName("Left Sun")
+		leftSun.setScale(0.1)
+		addChild(leftSun)
+		
+		middleSun.setPosition(simd_float3(0,1,0))
+		addMeshComponent(.Sphere, toChild: middleSun)
+		if let mesh = middleSun.component(ofType: MeshComponent.self) {
+			mesh.setMaterialIsLit(false)
+			mesh.setMaterialColor(simd_float4(1,1,1,1))
+		}
+		addLightComponent(toChild: middleSun)
+		if let light =  middleSun.component(ofType: LightComponent.self){
+			light.setLightColor(simd_float3(1,1,1))
+		}
+		middleSun.setName("Middle Sun")
+		middleSun.setScale(0.1)
+		addChild(middleSun)
+		
+		rightSun.setPosition(simd_float3(1,1,0))
+		addMeshComponent(.Sphere, toChild: rightSun)
+		if let mesh = rightSun.component(ofType: MeshComponent.self) {
+			mesh.setMaterialIsLit(false)
+			mesh.setMaterialColor(simd_float4(0,0,1,1))
+		}
+		addLightComponent(toChild: rightSun)
+		if let light =  rightSun.component(ofType: LightComponent.self){
+			light.setLightColor(simd_float3(0,0,1))
+		}
+		rightSun.setName("Right Sun")
+		rightSun.setScale(0.1)
+		addChild(rightSun)
+								
 		addMeshComponent(.Cruiser, toChild: cruiser)
-		
-		if let mesh = cruiser.Mesh {
+		if let mesh = cruiser.component(ofType: MeshComponent.self) {
 			mesh.setTexture(.Cruiser)
 		}
 		cruiser.addComponent(CruiserInputComponent())
 		addChild(cruiser)
-		addMeshComponent(.Triangle_Custom, toChild: triangle, instanceCount: 2)
-		triangle.setName("Triangle")
-		triangle.children[0].moveX(-1)
-		triangle.children[1].moveX(1)
-		print("children under triangle \(triangle.children.count)")
     }
     
 //

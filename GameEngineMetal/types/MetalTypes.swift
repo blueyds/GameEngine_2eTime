@@ -6,6 +6,7 @@
 //
 
 import simd
+import Foundation
 
 protocol sizeable{
 	static func size( _ count: Int)-> Int
@@ -27,6 +28,7 @@ extension sizeable{
 	}
 }
 
+extension Int: sizeable{}
 extension simd_float3: sizeable{}
 extension simd_float4: sizeable {}
 extension simd_float2: sizeable {}
@@ -58,11 +60,16 @@ struct SceneConstants:sizeable {
 }
 
 struct Material: sizeable {
-	var color = simd_float4(0.0, 0.0, 0.0, 1.0)
+	var color = simd_float4(0, 0, 0, 1)
 	var useMaterialColor = false
 	var useTexture: Bool = false
+	var isLit: Bool = true
+	var ambient: simd_float3 = simd_float3(0.3, 0.3, 0.3)
 }
 
 struct LightData: sizeable {
-	var position: simd_float3 = simd_float3(0,0,0)
+	var position: simd_float3 = simd_float3(0, 0, 0)
+	var color: simd_float3 = simd_float3(1, 1, 1)
+	var brightness: Float = 1.0
+	var ambientIntensity: Float = 1.0
 }

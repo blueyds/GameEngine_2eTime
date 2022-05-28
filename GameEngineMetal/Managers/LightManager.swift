@@ -21,7 +21,13 @@ class LightManager {
 		_components.components.forEach(){
 			lightDatas.append($0.lightData)
 		}
-		renderCommandEncoder.setFragmentBytes(&lightDatas, length: LightData.size(lightDatas.count), index: 2)
+		var lightCount = lightDatas.count
+		renderCommandEncoder.setFragmentBytes(&lightCount,
+											  length: Int.size,
+											  index: 2)
+		renderCommandEncoder.setFragmentBytes(&lightDatas,
+											  length: LightData.stride(lightCount),
+											  index: 3)
 	}
 	func updateAll(deltaTime: TimeInterval){
 		

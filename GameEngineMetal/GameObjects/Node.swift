@@ -116,12 +116,7 @@ extension  Node {
 	func removeMesh(){
 		removeComponent(ofType: MeshComponent.self)
 	}
-	var Mesh: MeshComponent? {
-		if let mesh = component(ofType: MeshComponent.self) {
-			return mesh
-		}
-		return nil
-	}
+
 }
 
 // Light Extensions
@@ -134,6 +129,7 @@ extension Node {
 	func removeLIght(){
 		removeComponent(ofType: LightComponent.self)
 	}
+	
 }
 
 // Camera extensions

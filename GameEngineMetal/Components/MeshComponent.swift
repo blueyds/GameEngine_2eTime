@@ -100,14 +100,36 @@ class MeshComponent: GKComponent {
 
 
 extension MeshComponent {
-	public func setColor(_ color: simd_float4){
+	public func setMaterialColor(_ color: simd_float4){
 		self.material.color = color
 		self.material.useMaterialColor = true
+		material.useTexture = false
 	}
 	
 	public func setTexture(_ textureType: TextureLibrary.Types){
 		self.material.useTexture = true
 		self.material.useMaterialColor = false
 		self._textureType = textureType
+	}
+	// is lit
+	public func setMaterialIsLit(_ isLit: Bool) {
+		material.isLit = isLit
+	}
+	public func getMaterialIsLit()->Bool {
+		material.isLit
+	}
+	
+	// Ambient  getter and setters
+	public func setMaterialAmbient(_ ambient: simd_float3){
+		material.ambient = ambient
+	}
+	public func setMaterialAmbient(_ ambient: Float) {
+		material.ambient = simd_float3(repeating: ambient)
+	}
+	public func addMaterialAmbient(_ value: Float) {
+		material.ambient += value
+	}
+	public func getMaterialAmbient()->simd_float3 {
+		material.ambient
 	}
  }
