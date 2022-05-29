@@ -30,7 +30,7 @@ class LightManager {
 											  index: 3)
 	}
 	func updateAll(deltaTime: TimeInterval){
-		
+		_components.update(deltaTime: deltaTime)
 	}
 	
 	func addComponent(foundIn fromNode: Node){

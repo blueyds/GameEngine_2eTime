@@ -102,51 +102,51 @@ extension Node {
 	func scaleZ(_ delta: Float){ self._scale.z += delta }
 }
 
-// Mesh Extensions
-extension  Node {
-	func addMesh(_ meshType: Entities.Types, count: Int){
-		// MARK: Todo add InstancedMeshComponent
-		let component = MeshComponent(meshType: meshType, instanceCount: count)
-		addComponent(component)
-	}
-	func addMesh(_ meshType: Entities.Types){
-		let component = MeshComponent(meshType: meshType)
-		addComponent(component)
-	}
-	func removeMesh(){
-		removeComponent(ofType: MeshComponent.self)
-	}
+//// Mesh Extensions
+//extension  Node {
+//	func addMesh(_ meshType: Entities.Types, count: Int){
+//		// MARK: Todo add InstancedMeshComponent
+//		let component = MeshComponent(meshType: meshType, instanceCount: count)
+//		addComponent(component)
+//	}
+//	func addMesh(_ meshType: Entities.Types){
+//		let component = MeshComponent(meshType: meshType)
+//		addComponent(component)
+//	}
+//	func removeMesh(){
+//		removeComponent(ofType: MeshComponent.self)
+//	}
+//
+//}
 
-}
-
-// Light Extensions
-extension Node {
-	func addLight() {
-		let component = LightComponent()
-		addComponent(component)
-		
-	}
-	func removeLIght(){
-		removeComponent(ofType: LightComponent.self)
-	}
-	
-}
+//// Light Extensions
+//extension Node {
+//	func addLight() {
+//		let component = LightComponent()
+//		addComponent(component)
+//
+//	}
+//	func removeLIght(){
+//		removeComponent(ofType: LightComponent.self)
+//	}
+//
+//}
 
 // Camera extensions
-extension Node {
-	func addCamera(_ cameraType: CameraComponent.Types) {
-		let component = CameraComponent(cameraType: cameraType)
-		addComponent(component)
-	}
-	func addCamera(_ cameraType: CameraComponent.Types, zoom: Float, aspectRatio: Float, near: Float, far: Float){
-		let component = CameraComponent(cameraType: cameraType, zoom: zoom, aspectRatio: aspectRatio, near: near, far: far)
-		addComponent(component)
-	}
+//extension Node {
 //	func addCamera(_ cameraType: CameraComponent.Types) {
 //		let component = CameraComponent(cameraType: cameraType)
 //		addComponent(component)
 //	}
-	func removeCamera(){
-		removeComponent(ofType: CameraComponent.self)
-	}
-}
+//	func addCamera(_ cameraType: CameraComponent.Types, zoom: Float, aspectRatio: Float, near: Float, far: Float){
+//		let component = CameraComponent(cameraType: cameraType, zoom: zoom, aspectRatio: aspectRatio, near: near, far: far)
+//		addComponent(component)
+//	}
+////	func addCamera(_ cameraType: CameraComponent.Types) {
+////		let component = CameraComponent(cameraType: cameraType)
+////		addComponent(component)
+////	}
+//	func removeCamera(){
+//		removeComponent(ofType: CameraComponent.self)
+//	}
+//}

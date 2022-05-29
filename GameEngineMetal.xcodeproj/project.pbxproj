@@ -36,6 +36,7 @@
 		D144F73A2814A3F2009EBD0D /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = D144F7392814A3F2009EBD0D /* Preferences.swift */; };
 		D144F73C2814BC0A009EBD0D /* ShaderLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D144F73B2814BC0A009EBD0D /* ShaderLibrary.swift */; };
 		D144F73E2814DC3F009EBD0D /* VertexDescriptorLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D144F73D2814DC3F009EBD0D /* VertexDescriptorLibrary.swift */; };
+		D15B5E742842C9DF0095064E /* SunInputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B5E732842C9DF0095064E /* SunInputComponent.swift */; };
 		D16C1E19281B15B000E58127 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16C1E18281B15B000E58127 /* Node.swift */; };
 		D16C1E20281B331D00E58127 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16C1E1F281B331D00E58127 /* Math.swift */; };
 		D16C1E23281B540700E58127 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16C1E22281B540700E58127 /* Scene.swift */; };
@@ -113,6 +114,7 @@
 		D144F7392814A3F2009EBD0D /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		D144F73B2814BC0A009EBD0D /* ShaderLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderLibrary.swift; sourceTree = "<group>"; };
 		D144F73D2814DC3F009EBD0D /* VertexDescriptorLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VertexDescriptorLibrary.swift; sourceTree = "<group>"; };
+		D15B5E732842C9DF0095064E /* SunInputComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunInputComponent.swift; sourceTree = "<group>"; };
 		D16C1E18281B15B000E58127 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		D16C1E1F281B331D00E58127 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		D16C1E22281B540700E58127 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				D12FB6142839C457000C4894 /* CameraComponent.swift */,
 				D1816F54283AD7820074FD5B /* DebugCameraInputComponent.swift */,
 				D1D803AD283B264F009BF201 /* CruiserInputComponent.swift */,
+				D15B5E732842C9DF0095064E /* SunInputComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				D1FD1EC7282210CC00F1BCF3 /* Quad_CustomMesh.swift in Sources */,
 				D12FB60F28399487000C4894 /* MeshComponent.swift in Sources */,
 				D10E61D928123E7600EDC156 /* ContentView.swift in Sources */,
+				D15B5E742842C9DF0095064E /* SunInputComponent.swift in Sources */,
 				D144F73E2814DC3F009EBD0D /* VertexDescriptorLibrary.swift in Sources */,
 				D16C1E28281B581800E58127 /* SceneManager.swift in Sources */,
 				D16C1E3D281C677200E58127 /* DepthStencilStateLibrary.swift in Sources */,

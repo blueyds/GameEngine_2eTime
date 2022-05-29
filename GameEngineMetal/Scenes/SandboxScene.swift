@@ -23,7 +23,7 @@ class SandboxScene: GameScene {
 		addChild(pointer)
 		
 		
-		leftSun.setPosition(simd_float3(-1,1,0))
+		leftSun.setPosition(simd_float3(-2,3,1))
 		addMeshComponent(.Sphere, toChild: leftSun)
 		if let mesh = leftSun.component(ofType: MeshComponent.self) {
 			mesh.setMaterialIsLit(false)
@@ -34,10 +34,11 @@ class SandboxScene: GameScene {
 			light.setLightColor(simd_float3(1,0,0))
 		}
 		leftSun.setName("Left Sun")
-		leftSun.setScale(0.1)
+		leftSun.setScale(0.5)
+		leftSun.addComponent(SunInputComponent(toggleKey: .a))
 		addChild(leftSun)
 		
-		middleSun.setPosition(simd_float3(0,1,0))
+		middleSun.setPosition(simd_float3(0,3,0))
 		addMeshComponent(.Sphere, toChild: middleSun)
 		if let mesh = middleSun.component(ofType: MeshComponent.self) {
 			mesh.setMaterialIsLit(false)
@@ -48,10 +49,11 @@ class SandboxScene: GameScene {
 			light.setLightColor(simd_float3(1,1,1))
 		}
 		middleSun.setName("Middle Sun")
-		middleSun.setScale(0.1)
+		middleSun.setScale(0.8)
+		middleSun.addComponent(SunInputComponent(toggleKey: .s))
 		addChild(middleSun)
 		
-		rightSun.setPosition(simd_float3(1,1,0))
+		rightSun.setPosition(simd_float3(2,3,-1))
 		addMeshComponent(.Sphere, toChild: rightSun)
 		if let mesh = rightSun.component(ofType: MeshComponent.self) {
 			mesh.setMaterialIsLit(false)
@@ -62,13 +64,17 @@ class SandboxScene: GameScene {
 			light.setLightColor(simd_float3(0,0,1))
 		}
 		rightSun.setName("Right Sun")
-		rightSun.setScale(0.1)
+		rightSun.setScale(0.5)
+		
+		rightSun.addComponent(SunInputComponent(toggleKey: .d))
 		addChild(rightSun)
 								
 		addMeshComponent(.Cruiser, toChild: cruiser)
 		if let mesh = cruiser.component(ofType: MeshComponent.self) {
 			mesh.setTexture(.Cruiser)
+//			mesh.setMaterialAmbient(0.01)
 		}
+		cruiser.setName("Cruiser")
 		cruiser.addComponent(CruiserInputComponent())
 		addChild(cruiser)
     }

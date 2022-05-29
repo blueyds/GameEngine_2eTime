@@ -15,9 +15,7 @@ class MeshManager {
 		
 	}
 	func updateAll(deltaTime: TimeInterval){
-		_components.components.forEach(){
-			$0.update(deltaTime: deltaTime)
-		}
+		_components.update(deltaTime: deltaTime)
 	}
 	func renderAll(rce: MTLRenderCommandEncoder){
 		_components.components.forEach(){

@@ -14,6 +14,8 @@ class GameScene: Node {
 	var _lightManager = LightManager()
 	var _camera: CameraComponent?
 	private var _sceneConstants = SceneConstants()
+	// private component systems
+	
 	// var camera = DebugCamera()
 	init(){
 		super.init(name: "Scene")
@@ -39,14 +41,16 @@ class GameScene: Node {
 	func updateScene(deltaTime: TimeInterval) {
 		updateSceneConstants()
 		updateChildrenMatrix()
-		updateAll(deltaTime: deltaTime)
 		_meshManager.updateAll(deltaTime: deltaTime)
+		_lightManager.updateAll(deltaTime: deltaTime)
 		
+		doUpdate(deltaTime: deltaTime)
+		children.forEach(){ $0.update(deltaTime: deltaTime)	}
+		_meshManager.updateAll(deltaTime: deltaTime)
 	}
-	func updateAll(deltaTime: TimeInterval) {
-		for node in children {
-			node.update(deltaTime: deltaTime)
-		}
+	// doUPdate can be overriden by  subclass to provide a hook to update special component systems before running mesh updater
+	func doUpdate(deltaTime: TimeInterval){
+		
 	}
 	
 	func render(renderCommandEncoder: MTLRenderCommandEncoder) {
@@ -59,39 +63,48 @@ class GameScene: Node {
 // mesh extensions for the scene
 extension GameScene {
 	func addMeshComponent(_ meshType: Entities.Types, toChild: Node){
-		toChild.addMesh(meshType)
+		let component = MeshComponent(meshType: meshType)
+		toChild.addComponent(component)
 		_meshManager.addComponent(foundIn: toChild)
 	}
 	func addMeshComponent(_ meshType: Entities.Types, toChild: Node, instanceCount: Int){
-		toChild.addMesh(meshType, count: instanceCount)
+		let component = MeshComponent(meshType: meshType, instanceCount: instanceCount)
+		toChild.addComponent(component)
 		_meshManager.addComponent(foundIn: toChild)
 	}
 	func removeMeshComponent(fromChild: Node){
-		fromChild.removeMesh()
+		fromChild.removeComponent(ofType: MeshComponent.self)
 		_meshManager.removeComponent(foundIn: fromChild)
 	}
 }
 // light extensions for the scene
 extension GameScene {
 	func addLightComponent(toChild: Node){
-		toChild.addLight()
+		let component = LightComponent()
+		toChild.addComponent(component)
 		_lightManager.addComponent(foundIn: toChild)
 	}
 	// MARK: todo may need to remove from the lightmanager
-	func removeLightComponent(toChild: Node){
-		toChild.removeLIght()
-		_lightManager.removeComponent(foundIn: toChild)
+	func removeLightComponent(fromChild: Node){
+		fromChild.removeComponent(ofType: LightComponent.self)
+		_lightManager.removeComponent(foundIn: fromChild)
 	}
 }
 
 // camera extensions for the scene
 extension GameScene {
 	func addCameraComponent(toChild: Node,cameraType: CameraComponent.Types, zoom: Float, aspectRatio: Float, near: Float, far: Float){
-		toChild.addCamera(cameraType, zoom: zoom, aspectRatio: aspectRatio, near: near, far: far)
+		let component = CameraComponent(cameraType: cameraType, zoom: zoom, aspectRatio: aspectRatio, near: near, far: far)
+		toChild.addComponent(component)
+		if _camera != nil {
+			if let node = _camera?.entity as? Node {
+				removeCameraComponent(fromChild: node)
+			}
+		}
 		_camera = toChild.component(ofType: CameraComponent.self)
 	}
 	func removeCameraComponent(fromChild: Node) {
-		fromChild.removeCamera()
+		fromChild.removeComponent(ofType: CameraComponent.self)
 		_camera = nil
 	}
 }

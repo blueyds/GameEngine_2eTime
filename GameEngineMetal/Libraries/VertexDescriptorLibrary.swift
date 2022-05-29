@@ -31,6 +31,8 @@ class VertexDescriptorLibrary {
 		basic.addAttribute(position: 1, format: .float4, offset: simd_float3.size, bufferIndex: 0)
 		// texture attribures
 		basic.addAttribute(position: 2, format: .float2, offset: simd_float3.size + simd_float4.size, bufferIndex: 0)
+		// normal attributes
+		basic.addAttribute(position: 3, format: .float3, offset: simd_float3.size + simd_float4.size + simd_float2.size, bufferIndex: 0)
 		// layout
 		basic.addLayout(stride: Vertex.stride)
 		vertexDescriptors.updateValue(basic, forKey: .Basic)

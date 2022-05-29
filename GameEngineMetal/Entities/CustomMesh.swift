@@ -16,8 +16,9 @@ class CustomMesh: Mesh {
 	
 	func addVertex(position: simd_float3,
 				   color: simd_float4 = simd_float4(1,0,1,1),
-				   textureCoordinates: simd_float2 = simd_float2(repeating: 0)){
-		_vertices.append(Vertex(position: position, color: color, textureCoordinate: textureCoordinates))
+				   textureCoordinates: simd_float2 = simd_float2(repeating: 0),
+				   normal: simd_float3 = simd_float3(0,1,0)){
+		_vertices.append(Vertex(position: position, color: color, textureCoordinate: textureCoordinates, normal: normal))
 	}
 	func createBuffers(device: MTLDevice){
 		_vertexBuffer = device.makeBuffer(bytes: _vertices, length: Vertex.stride(_vertices.count) )

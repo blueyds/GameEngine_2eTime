@@ -9,7 +9,7 @@ import MetalKit
 import GameplayKit
 
 class LightComponent: GKComponent {
-	var lightData: LightData
+	var lightData: LightData = LightData()
 	override init(){
 		lightData = LightData()
 		super.init()
@@ -21,9 +21,7 @@ class LightComponent: GKComponent {
 	override func update(deltaTime: TimeInterval) {
 		if let node = entity as? Node {
 			lightData.position = node.getPosition()
-			print("update lightdata")
 		}
-		print("not a node for lightcomponet")
 	}
 }
 
@@ -49,5 +47,13 @@ extension LightComponent {
 	}
 	public func getLightAmbientIntensity()-> Float {
 		lightData.ambientIntensity
+	}
+	
+	// Diffuse Intensity
+	public func setLigtDiffuseIntensity(_ intensity: Float) {
+		lightData.diffuseIntensity = intensity
+	}
+	public func getLightDiffuseIntensity()-> Float {
+		lightData.diffuseIntensity
 	}
 }

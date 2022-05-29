@@ -40,6 +40,8 @@ class ModelMesh: Mesh {
 		(descriptor.attributes[0] as! MDLVertexAttribute).name = MDLVertexAttributePosition
 		(descriptor.attributes[1] as! MDLVertexAttribute).name = MDLVertexAttributeColor
 		(descriptor.attributes[2] as! MDLVertexAttribute).name = MDLVertexAttributeTextureCoordinate
+		(descriptor.attributes[3] as! MDLVertexAttribute).name = MDLVertexAttributeNormal
+		
 		
 		let bufferAllocator = MTKMeshBufferAllocator(device: device)
 		let asset: MDLAsset = MDLAsset(url: assetUrl,

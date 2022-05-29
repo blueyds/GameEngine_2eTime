@@ -132,4 +132,17 @@ extension MeshComponent {
 	public func getMaterialAmbient()->simd_float3 {
 		material.ambient
 	}
+	// Diffuse  getter and setters
+	public func setMaterialDiffuse(_ diffuse: simd_float3){
+		material.diffuse = diffuse
+	}
+	public func setMaterialDiffuse(_ diffuse: Float) {
+		material.diffuse = simd_float3(repeating: diffuse)
+	}
+	public func addMaterialDiffuse(_ value: Float) {
+		material.diffuse += value
+	}
+	public func getMaterialDiffuse()->simd_float3 {
+		material.diffuse
+	}
  }
