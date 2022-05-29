@@ -145,4 +145,26 @@ extension MeshComponent {
 	public func getMaterialDiffuse()->simd_float3 {
 		material.diffuse
 	}
+	
+	// Specular  getter and setters
+	public func setMaterialSpecular(_ specular: simd_float3){
+		material.specular = specular
+	}
+	public func setMaterialSpecular(_ specular: Float) {
+		material.specular = simd_float3(repeating: specular)
+	}
+	public func addMaterialSpecular(_ value: Float) {
+		material.specular += value
+	}
+	public func getMaterialSpecular()->simd_float3 {
+		material.specular
+	}
+	
+	// Shininess
+	public func setMaterialShininess(_ shininess: Float){
+		material.shininess = shininess
+	}
+	public func getMaterialShininess()-> Float {
+		material.shininess
+	}
  }

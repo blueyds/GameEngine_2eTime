@@ -56,4 +56,12 @@ extension LightComponent {
 	public func getLightDiffuseIntensity()-> Float {
 		lightData.diffuseIntensity
 	}
+	
+	// Specular Intensity
+	public func setLightSpecularIntensity(_ intensity: Float) {
+		lightData.specularIntensity = intensity
+	}
+	public func getLightSpecularIntensity()->Float {
+		lightData.specularIntensity
+	}
 }

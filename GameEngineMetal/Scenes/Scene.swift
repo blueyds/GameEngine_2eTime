@@ -33,6 +33,9 @@ class GameScene: Node {
 		if let camera = _camera {
 			_sceneConstants.viewMatrix = camera.viewMatrix
 			_sceneConstants.projectionMatrix = camera.projectionMatrix
+			if let node = camera.entity as? Node {
+				_sceneConstants.cameraPosition = node.getPosition()
+			}
 		}
 		_sceneConstants.totalGameTime = Float(GameTime.TotalGameTime)
 	

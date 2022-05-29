@@ -56,7 +56,7 @@ class Mouse {
 	public static func GetDWheel()->Float{
 		let position = scrollWheelChange
 		scrollWheelChange = 0
-		return position
+		return -position // this will ensure that when we scroll up on the wheel it will return a positive number
 	}
 	
 	///Movement on the y axis since last time getDY() was called.
