@@ -7,7 +7,7 @@
 
 import MetalKit
 import GameplayKit
-class Node: GKEntity, Identifiable{
+class GameNode: GKEntity, Identifiable{
 	private var _name: String
 	let id = UUID()
 	
@@ -26,7 +26,7 @@ class Node: GKEntity, Identifiable{
 		return matrix_multiply(parentModelMatrix, matrix)
 		
 	}
-	var children: [Node] = []
+	var children: [GameNode] = []
 	
 	init(name: String){
 		self._name = name
@@ -36,7 +36,7 @@ class Node: GKEntity, Identifiable{
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-	func addChild(_ child: Node){
+	func addChild(_ child: GameNode){
 		children.append(child)
 	}
 	
@@ -53,7 +53,7 @@ class Node: GKEntity, Identifiable{
 	
 }
 // General translation extensions
-extension Node {
+extension GameNode {
 	//Naming
 	func setName(_ name: String){ self._name = name }
 	func getName()->String{ return _name }

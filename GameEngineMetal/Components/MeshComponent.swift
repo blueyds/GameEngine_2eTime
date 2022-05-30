@@ -35,9 +35,9 @@ class MeshComponent: GKComponent {
 	
 	override func didAddToEntity(){
 		if modelConstants.count != 1 {
-			if let node = entity as? Node {
+			if let node = entity as? GameNode {
 				for _ in 0..<modelConstants.count {
-					node.addChild(Node(name: "\(node.getName()).Instanced_node"))
+					node.addChild(GameNode(name: "\(node.getName()).Instanced_node"))
 				}
 			}else {fatalError("entity is not a node.")}
 		}
@@ -61,7 +61,7 @@ class MeshComponent: GKComponent {
 	
 	
 	private func updateModelConstants(){
-		if let node = entity as? Node {
+		if let node = entity as? GameNode {
 			if modelConstants.count == 1 {
 				modelConstants[0].modelMatrix = node.modelMatrix
 			}

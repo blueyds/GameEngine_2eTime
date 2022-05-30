@@ -19,7 +19,7 @@ class LightComponent: GKComponent {
 	}
 
 	override func update(deltaTime: TimeInterval) {
-		if let node = entity as? Node {
+		if let node = entity as? GameNode {
 			lightData.position = node.getPosition()
 		}
 	}

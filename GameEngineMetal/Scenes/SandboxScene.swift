@@ -9,11 +9,11 @@
 
 class SandboxScene: GameScene {
     
-	var pointer = Node(name: "Pointer")
-    var cruiser = Node(name: "Cruiser")
-	var leftSun = Node(name: "Left Sun")
-	var middleSun = Node(name: "Middle Sun")
-	var rightSun = Node(name: "Right Sun")
+	var pointer = GameNode(name: "Pointer")
+    var cruiser = GameNode(name: "Cruiser")
+	var leftSun = GameNode(name: "Left Sun")
+	var middleSun = GameNode(name: "Middle Sun")
+	var rightSun = GameNode(name: "Right Sun")
 	
 	
 	override func buildScene() {

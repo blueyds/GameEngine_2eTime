@@ -10,7 +10,7 @@ import GameplayKit
 
 class CruiserInputComponent: GKComponent{
 	override func update(deltaTime: TimeInterval) {
-		if let node = entity as? Node {
+		if let node = entity as? GameNode {
 			if Mouse.IsMouseButtonPressed(button: .left){
 				node.rotateX(Mouse.GetDY() * deltaTime.RatePerSecond * ClassConstants.speed)
 				node.rotateY(Mouse.GetDX() * deltaTime.RatePerSecond * ClassConstants.speed)

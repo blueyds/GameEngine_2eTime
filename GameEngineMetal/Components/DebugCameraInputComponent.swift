@@ -10,7 +10,7 @@ import GameplayKit
 
 class DebugCameraInputComponent: GKComponent{
 	override func update(deltaTime: TimeInterval) {
-		if let node = entity as? Node {
+		if let node = entity as? GameNode {
 			let deltaMove = deltaTime.RatePerSecond * ClassConstants.speed
 //			let deltaMove = ClassConstants.speed
 			if Keyboard.IsKeyPressed(.leftArrow){

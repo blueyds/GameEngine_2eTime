@@ -19,18 +19,18 @@ class MeshManager {
 	}
 	func renderAll(rce: MTLRenderCommandEncoder){
 		_components.components.forEach(){
-			if let node = $0.entity as? Node {
+			if let node = $0.entity as? GameNode {
 				rce.pushDebugGroup(node.getName())
 				$0.doRender(rce)
 				rce.popDebugGroup()
 			}
 		}
 	}
-	func addComponent(foundIn fromNode: Node) {
+	func addComponent(foundIn fromNode: GameNode) {
 		_components.addComponent(foundIn: fromNode)
 		print("WE now have \(_components.components.count) meshes in our meshManager")
 	}
-	func removeComponent(foundIn fromNode: Node){
+	func removeComponent(foundIn fromNode: GameNode){
 		
 		_components.removeComponent(foundIn: fromNode)
 	}

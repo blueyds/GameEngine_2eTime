@@ -16,7 +16,7 @@ class CameraComponent: GKComponent {
 	var viewMatrix: matrix_float4x4 {
 		var viewMatrix = matrix_identity_float4x4
 		
-		if let node = entity as? Node {
+		if let node = entity as? GameNode {
 			viewMatrix.rotate(angle: node.getRotationX(), axis: .x)
 			viewMatrix.rotate(angle: node.getRotationY(), axis: .y)
 			viewMatrix.rotate(angle: node.getRotationZ(), axis: .z)

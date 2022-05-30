@@ -33,11 +33,11 @@ class LightManager {
 		_components.update(deltaTime: deltaTime)
 	}
 	
-	func addComponent(foundIn fromNode: Node){
+	func addComponent(foundIn fromNode: GameNode){
 		_components.addComponent(foundIn: fromNode)
 		print("Light system has \(_components.components.count) lights")
 	}
-	func removeComponent(foundIn fromNode: Node){
+	func removeComponent(foundIn fromNode: GameNode){
 		_components.removeComponent(foundIn: fromNode)
 	}
 }

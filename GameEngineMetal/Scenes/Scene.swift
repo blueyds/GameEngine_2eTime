@@ -8,7 +8,7 @@
 import MetalKit
 import GameplayKit
 
-class GameScene: Node {
+class GameScene: GameNode {
 	
 	var _meshManager = MeshManager()
 	var _lightManager = LightManager()
@@ -33,7 +33,7 @@ class GameScene: Node {
 		if let camera = _camera {
 			_sceneConstants.viewMatrix = camera.viewMatrix
 			_sceneConstants.projectionMatrix = camera.projectionMatrix
-			if let node = camera.entity as? Node {
+			if let node = camera.entity as? GameNode {
 				_sceneConstants.cameraPosition = node.getPosition()
 			}
 		}
@@ -61,30 +61,30 @@ class GameScene: Node {
 }
 // mesh extensions for the scene
 extension GameScene {
-	func addMeshComponent(_ meshType: Entities.Types, toChild: Node){
+	func addMeshComponent(_ meshType: Entities.Types, toChild: GameNode){
 		let component = MeshComponent(meshType: meshType)
 		toChild.addComponent(component)
 		_meshManager.addComponent(foundIn: toChild)
 	}
-	func addMeshComponent(_ meshType: Entities.Types, toChild: Node, instanceCount: Int){
+	func addMeshComponent(_ meshType: Entities.Types, toChild: GameNode, instanceCount: Int){
 		let component = MeshComponent(meshType: meshType, instanceCount: instanceCount)
 		toChild.addComponent(component)
 		_meshManager.addComponent(foundIn: toChild)
 	}
-	func removeMeshComponent(fromChild: Node){
+	func removeMeshComponent(fromChild: GameNode){
 		fromChild.removeComponent(ofType: MeshComponent.self)
 		_meshManager.removeComponent(foundIn: fromChild)
 	}
 }
 // light extensions for the scene
 extension GameScene {
-	func addLightComponent(toChild: Node){
+	func addLightComponent(toChild: GameNode){
 		let component = LightComponent()
 		toChild.addComponent(component)
 		_lightManager.addComponent(foundIn: toChild)
 	}
 	// MARK: todo may need to remove from the lightmanager
-	func removeLightComponent(fromChild: Node){
+	func removeLightComponent(fromChild: GameNode){
 		fromChild.removeComponent(ofType: LightComponent.self)
 		_lightManager.removeComponent(foundIn: fromChild)
 	}
@@ -92,17 +92,17 @@ extension GameScene {
 
 // camera extensions for the scene
 extension GameScene {
-	func addCameraComponent(toChild: Node,cameraType: CameraComponent.Types, fov: Float, aspectRatio: Float, near: Float, far: Float){
+	func addCameraComponent(toChild: GameNode,cameraType: CameraComponent.Types, fov: Float, aspectRatio: Float, near: Float, far: Float){
 		let component = CameraComponent(cameraType: cameraType, fov: fov, aspectRatio: aspectRatio, near: near, far: far)
 		toChild.addComponent(component)
 		if _camera != nil {
-			if let node = _camera?.entity as? Node {
+			if let node = _camera?.entity as? GameNode {
 				removeCameraComponent(fromChild: node)
 			}
 		}
 		_camera = toChild.component(ofType: CameraComponent.self)
 	}
-	func removeCameraComponent(fromChild: Node) {
+	func removeCameraComponent(fromChild: GameNode) {
 		fromChild.removeComponent(ofType: CameraComponent.self)
 		_camera = nil
 	}

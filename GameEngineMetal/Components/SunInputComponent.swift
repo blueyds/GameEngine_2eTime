@@ -18,7 +18,7 @@ class SunInputComponent: GKComponent{
 		fatalError("init(coder:) has not been implemented")
 	}
 	override func update(deltaTime seconds: TimeInterval) {
-		if let node = entity as? Node {
+		if let node = entity as? GameNode {
 			if let light = node.component(ofType: LightComponent.self){
 				if Keyboard.IsKeyPressed(toggleKey){
 					light.setLightBrightness(0)
