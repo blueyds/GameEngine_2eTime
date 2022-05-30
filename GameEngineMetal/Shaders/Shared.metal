@@ -1,3 +1,8 @@
+
+
+#ifndef SHARED_METAL
+#define SHARED_METAL
+
 #include <metal_stdlib>
 
 struct VertexIn{
@@ -47,3 +52,4 @@ struct LightData {
 	float diffuseIntensity;
 	float specularIntensity;
 };
+#endif

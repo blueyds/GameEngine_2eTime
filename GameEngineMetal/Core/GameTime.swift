@@ -1,26 +1,31 @@
 
 import Foundation
 
+
 class GameTime {
-    private static var _totalGameTime: TimeInterval = 0.0
-    private static var _deltaTime: TimeInterval = 0.0
-    public static func UpdateTime() {
-//		let date = Date()
-//		let calendar = Calendar.current
-//
-//		let nano = calendar.component(.second, from: date)
-		_deltaTime = TimeInterval(1/60)
+	private  var _lastUpdateTime: Date
+    private  var _totalGameTime: TimeInterval
+    private  var _deltaTime: TimeInterval
+	init() {
+		_lastUpdateTime = Date()
+		_totalGameTime = 0.0
+		_deltaTime = 0.0
+	}
+    public func UpdateTime() {
+		let now = Date()
+		_deltaTime = now.timeIntervalSince(_lastUpdateTime)
 		_totalGameTime += _deltaTime
+		_lastUpdateTime = now
 	}
 }
 
 extension GameTime {
-    public static var TotalGameTime: TimeInterval {
-        return self._totalGameTime
+    public var TotalGameTime: TimeInterval {
+        _totalGameTime
     }
 
 	    
-    public static var DeltaTime: TimeInterval {
-        return self._deltaTime
+    public var DeltaTime: TimeInterval {
+        _deltaTime
     }
 }

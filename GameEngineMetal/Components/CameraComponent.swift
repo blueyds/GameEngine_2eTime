@@ -27,26 +27,22 @@ class CameraComponent: GKComponent {
 		return viewMatrix
 	}
 	
-	private var _zoom: Float = 45.0
-	private var _aspectRation: Float = Renderer.AspectRatio
-	private var _near: Float = 0.1
-	private var _far: Float = 1000
+	private var _fov: Float
+	private var _aspectRation: Float
+	private var _near: Float
+	private var _far: Float
 
 	
 	var projectionMatrix: matrix_float4x4 {
-		return matrix_float4x4.perspective(degreesFov: _zoom,
+		return matrix_float4x4.perspective(degreesFov: _fov,
 										   aspectRatio: _aspectRation,
 										   near: _near,
 										   far: _far)
 	}
 	
-	init(cameraType: Types){
+	init(cameraType: Types, fov: Float, aspectRatio: Float, near: Float, far: Float){
 		self.cameraType = cameraType
-		super.init()
-	}
-	init(cameraType: Types, zoom: Float, aspectRatio: Float, near: Float, far: Float){
-		self.cameraType = cameraType
-		self._zoom = zoom
+		self._fov = fov
 		self._aspectRation = aspectRatio
 		self._near = near
 		self._far = far
@@ -58,8 +54,8 @@ class CameraComponent: GKComponent {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	func setZoom(level: Float){
-		_zoom = level
+	func setFov(fov: Float){
+		_fov = fov
 	}
 	func setAspectRation(_ ratio: Float){
 		_aspectRation = ratio

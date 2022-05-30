@@ -9,24 +9,24 @@ import MetalKit
 import GameplayKit
 
 class CruiserInputComponent: GKComponent{
-	override func update(deltaTime seconds: TimeInterval) {
+	override func update(deltaTime: TimeInterval) {
 		if let node = entity as? Node {
 			if Mouse.IsMouseButtonPressed(button: .left){
-				node.rotateX(Mouse.GetDY() * ClassConstants.deltaMove)
-				node.rotateY(Mouse.GetDX() * ClassConstants.deltaMove)
+				node.rotateX(Mouse.GetDY() * deltaTime.RatePerSecond * ClassConstants.speed)
+				node.rotateY(Mouse.GetDX() * deltaTime.RatePerSecond * ClassConstants.speed)
 			}
 			if Keyboard.IsKeyPressed(.w){
-				node.moveZ(-ClassConstants.deltaMove)
+				node.moveZ(-deltaTime.RatePerSecond * ClassConstants.speed)
 			}
 			if Keyboard.IsKeyPressed(.x) {
-				node.moveZ(ClassConstants.deltaMove)
+				node.moveZ(deltaTime.RatePerSecond * ClassConstants.speed)
 			}
 		}
 		
 		
-		super.update(deltaTime: seconds)
+		super.update(deltaTime: deltaTime)
 	}
 	struct ClassConstants {
-		static let deltaMove: Float = 0.05
+		static let speed: Float = 0.05
 	}
 }

@@ -28,7 +28,7 @@ class SceneManager {
 	
 	func updateScene(deltaTime: TimeInterval){
 		_currentScene.updateScene(deltaTime: deltaTime)
-		//print("updated scene")
+		print("\(deltaTime.Milliseconds)ms elapsed since last update")
 	}
 	
 	func renderScene(renderCommandEncoder: MTLRenderCommandEncoder){

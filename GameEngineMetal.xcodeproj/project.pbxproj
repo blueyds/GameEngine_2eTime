@@ -31,7 +31,7 @@
 		D12FB6132839A00D000C4894 /* LIghtComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12FB6122839A00D000C4894 /* LIghtComponent.swift */; };
 		D12FB6152839C457000C4894 /* CameraComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12FB6142839C457000C4894 /* CameraComponent.swift */; };
 		D140985528162FAE00DA299A /* RenderPipelineState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140985328162FAE00DA299A /* RenderPipelineState.swift */; };
-		D140985628162FAE00DA299A /* RenderDescriptorLibary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140985428162FAE00DA299A /* RenderDescriptorLibary.swift */; };
+		D143A5782844247A0003EE29 /* Lighting.metal in Sources */ = {isa = PBXBuildFile; fileRef = D143A5772844247A0003EE29 /* Lighting.metal */; };
 		D144F7382814A0CB009EBD0D /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D144F7372814A0CB009EBD0D /* Engine.swift */; };
 		D144F73A2814A3F2009EBD0D /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = D144F7392814A3F2009EBD0D /* Preferences.swift */; };
 		D144F73C2814BC0A009EBD0D /* ShaderLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = D144F73B2814BC0A009EBD0D /* ShaderLibrary.swift */; };
@@ -58,7 +58,6 @@
 		D1FD1EC8282210CC00F1BCF3 /* Cube_CustomMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FD1EC3282210CC00F1BCF3 /* Cube_CustomMesh.swift */; };
 		D1FD1EC9282210CC00F1BCF3 /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FD1EC4282210CC00F1BCF3 /* Entities.swift */; };
 		D1FD1ECF282211E900F1BCF3 /* MetalTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FD1ECD282211E900F1BCF3 /* MetalTypes.swift */; };
-		D1FD1ED0282211E900F1BCF3 /* Shader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FD1ECE282211E900F1BCF3 /* Shader.swift */; };
 		D1FD1ED22822148D00F1BCF3 /* GameTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FD1ED12822148D00F1BCF3 /* GameTime.swift */; };
 		D1FD1F922827333400F1BCF3 /* PartyPirateParot.png in Resources */ = {isa = PBXBuildFile; fileRef = D1FD1F912827333400F1BCF3 /* PartyPirateParot.png */; };
 /* End PBXBuildFile section */
@@ -109,7 +108,7 @@
 		D12FB6122839A00D000C4894 /* LIghtComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LIghtComponent.swift; sourceTree = "<group>"; };
 		D12FB6142839C457000C4894 /* CameraComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraComponent.swift; sourceTree = "<group>"; };
 		D140985328162FAE00DA299A /* RenderPipelineState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderPipelineState.swift; sourceTree = "<group>"; };
-		D140985428162FAE00DA299A /* RenderDescriptorLibary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderDescriptorLibary.swift; sourceTree = "<group>"; };
+		D143A5772844247A0003EE29 /* Lighting.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Lighting.metal; sourceTree = "<group>"; };
 		D144F7372814A0CB009EBD0D /* Engine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
 		D144F7392814A3F2009EBD0D /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		D144F73B2814BC0A009EBD0D /* ShaderLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderLibrary.swift; sourceTree = "<group>"; };
@@ -136,7 +135,6 @@
 		D1FD1EC3282210CC00F1BCF3 /* Cube_CustomMesh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cube_CustomMesh.swift; sourceTree = "<group>"; };
 		D1FD1EC4282210CC00F1BCF3 /* Entities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
 		D1FD1ECD282211E900F1BCF3 /* MetalTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalTypes.swift; sourceTree = "<group>"; };
-		D1FD1ECE282211E900F1BCF3 /* Shader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shader.swift; sourceTree = "<group>"; };
 		D1FD1ED12822148D00F1BCF3 /* GameTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTime.swift; sourceTree = "<group>"; };
 		D1FD1F912827333400F1BCF3 /* PartyPirateParot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PartyPirateParot.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -293,7 +291,6 @@
 			children = (
 				D144F73B2814BC0A009EBD0D /* ShaderLibrary.swift */,
 				D144F73D2814DC3F009EBD0D /* VertexDescriptorLibrary.swift */,
-				D140985428162FAE00DA299A /* RenderDescriptorLibary.swift */,
 				D140985328162FAE00DA299A /* RenderPipelineState.swift */,
 				D16C1E3C281C677200E58127 /* DepthStencilStateLibrary.swift */,
 				D12CE70F282735A400969AC1 /* TextureLibrary.swift */,
@@ -308,6 +305,7 @@
 				D1FD1EBC2822105700F1BCF3 /* BasicShaders.metal */,
 				D1FD1EBA2822105000F1BCF3 /* Shared.metal */,
 				D1FD1EB82822104200F1BCF3 /* InstancedShaders.metal */,
+				D143A5772844247A0003EE29 /* Lighting.metal */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -400,7 +398,6 @@
 			isa = PBXGroup;
 			children = (
 				D1FD1ECD282211E900F1BCF3 /* MetalTypes.swift */,
-				D1FD1ECE282211E900F1BCF3 /* Shader.swift */,
 			);
 			path = types;
 			sourceTree = "<group>";
@@ -560,6 +557,7 @@
 				D144F73C2814BC0A009EBD0D /* ShaderLibrary.swift in Sources */,
 				D10E62042812484E00EDC156 /* Renderer.swift in Sources */,
 				D1FD1EC7282210CC00F1BCF3 /* Quad_CustomMesh.swift in Sources */,
+				D143A5782844247A0003EE29 /* Lighting.metal in Sources */,
 				D12FB60F28399487000C4894 /* MeshComponent.swift in Sources */,
 				D10E61D928123E7600EDC156 /* ContentView.swift in Sources */,
 				D15B5E742842C9DF0095064E /* SunInputComponent.swift in Sources */,
@@ -577,14 +575,12 @@
 				D1FD1EB92822104200F1BCF3 /* InstancedShaders.metal in Sources */,
 				D16C1E19281B15B000E58127 /* Node.swift in Sources */,
 				D12CE710282735A400969AC1 /* TextureLibrary.swift in Sources */,
-				D140985628162FAE00DA299A /* RenderDescriptorLibary.swift in Sources */,
 				D12FB6132839A00D000C4894 /* LIghtComponent.swift in Sources */,
 				D1816F55283AD7820074FD5B /* DebugCameraInputComponent.swift in Sources */,
 				D144F73A2814A3F2009EBD0D /* Preferences.swift in Sources */,
 				D12FB5FF28398494000C4894 /* NoMesh.swift in Sources */,
 				D16C1E32281C2C6D00E58127 /* GameEventHandler.swift in Sources */,
 				D12FB6012839880D000C4894 /* LightManager.swift in Sources */,
-				D1FD1ED0282211E900F1BCF3 /* Shader.swift in Sources */,
 				D16C1E25281B55B700E58127 /* SandboxScene.swift in Sources */,
 				D144F7382814A0CB009EBD0D /* Engine.swift in Sources */,
 				D12CE71B282752CC00969AC1 /* ModelMesh.swift in Sources */,

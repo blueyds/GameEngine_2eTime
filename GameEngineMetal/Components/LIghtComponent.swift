@@ -30,6 +30,9 @@ extension LightComponent {
 	public func setLightColor(_ color: simd_float3){
 		lightData.color = color
 	}
+	public func setLightColor(r: Float, g: Float, b: Float){
+		setLightColor(simd_float3(r, g, b))
+	}
 	public func getLightColor()->simd_float3 {
 		lightData.color
 	}

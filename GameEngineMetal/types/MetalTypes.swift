@@ -35,12 +35,16 @@ extension simd_float2: sizeable {}
 extension Float: sizeable {}
 
 extension TimeInterval {
- var Milliseconds:Float{
-  Float(self * 1000)
+ var Milliseconds: Int{
+	 return Int((self * 1000).rounded())
  }
- var RatePerSecond:Float{
-  Float(1 / self)
- }
+ var RatePerSecond:Float {
+//	 let v1 = self.Milliseconds
+//
+//	 let v3  = 1 / v2
+//	 return v3
+	 return 1
+	}
 }
 
 struct Vertex: sizeable {

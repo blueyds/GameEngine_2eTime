@@ -9,28 +9,28 @@ import MetalKit
 import GameplayKit
 
 class DebugCameraInputComponent: GKComponent{
-	override func update(deltaTime seconds: TimeInterval) {
+	override func update(deltaTime: TimeInterval) {
 		if let node = entity as? Node {
-			node.moveZ(-Mouse.GetDWheel())
+			let deltaMove = deltaTime.RatePerSecond * ClassConstants.speed
+//			let deltaMove = ClassConstants.speed
 			if Keyboard.IsKeyPressed(.leftArrow){
-				node.moveX(-ClassConstants.keyMove)
+				node.moveX(-deltaMove)
 			}
 			if Keyboard.IsKeyPressed(.rightArrow){
-				node.moveX(ClassConstants.keyMove)
+				node.moveX(deltaMove)
 			}
 			if Keyboard.IsKeyPressed(.upArrow){
-				node.moveY(ClassConstants.keyMove)
+				node.moveY(deltaMove)
 			}
 			if Keyboard.IsKeyPressed(.downArrow){
-				node.moveY(-ClassConstants.keyMove)
+				node.moveY(-deltaMove)
 			}
+			//node.moveZ(-Mouse.GetDWheel() * deltaTime.RatePerSecond * ClassConstants.speed)
 			
 		}
-		
-		
-		super.update(deltaTime: seconds)
+		super.update(deltaTime: deltaTime)
 	}
 	struct ClassConstants {
-		static let keyMove: Float = 0.05
+		static let speed: Float = 0.1
 	}
 }

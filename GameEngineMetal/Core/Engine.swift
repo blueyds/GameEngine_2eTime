@@ -14,7 +14,7 @@ final class Engine {
 	var screenSize = simd_float2(repeating: 0)
 	private let _shaders: ShaderLibrary
 	private let _descriptors: VertexDescriptorLibrary
-	private let _renderDescriptors: RenderDescriptorLibrary
+//	private let _renderDescriptors: RenderDescriptorLibrary
 	private let _renderStates: RenderPipelineLibrary
 	private let _meshes: Entities
 	private let _preferences: Preferences
@@ -31,9 +31,9 @@ final class Engine {
 	func Descriptor(_ vertexDescriptorType: VertexDescriptorLibrary.Types)->MTLVertexDescriptor{
 		_descriptors.descriptor(vertexDescriptorType)
 	}
-	func RenderDescriptor(_ renderDescriptionType: RenderDescriptorLibrary.Types)-> MTLRenderPipelineDescriptor{
-		_renderDescriptors.descriptor(renderDescriptionType)
-	}
+//	func RenderDescriptor(_ renderDescriptionType: RenderDescriptorLibrary.Types)-> MTLRenderPipelineDescriptor{
+//		_renderDescriptors.descriptor(renderDescriptionType)
+//	}
 	func RenderState(_ renderPipelineStateType: RenderPipelineLibrary.Types)-> MTLRenderPipelineState {
 		_renderStates.renderState(renderPipelineStateType)
 	}
@@ -63,8 +63,7 @@ final class Engine {
 		self._preferences = Preferences.shared
 		self._shaders = ShaderLibrary(device: self.device)
 		self._descriptors = VertexDescriptorLibrary()
-		self._renderDescriptors = RenderDescriptorLibrary(library: _shaders, vertexDescriptorLibrary: _descriptors, preferences: _preferences )
-		self._renderStates = RenderPipelineLibrary(device: device, descriptorLibrary: _renderDescriptors)
+		self._renderStates = RenderPipelineLibrary(device: device, library: _shaders, vertexDescriptorLibrary: _descriptors, preferences: _preferences)
 		self._meshes = Entities(device: device, vertexDescriptorLibrary: self._descriptors)
 		self._depthStencilStates = DepthStencilStateLibrary(device: device)
 		self._textures = TextureLibrary(device: device)

@@ -37,7 +37,7 @@ class MeshComponent: GKComponent {
 		if modelConstants.count != 1 {
 			if let node = entity as? Node {
 				for _ in 0..<modelConstants.count {
-					node.addChild(Node())
+					node.addChild(Node(name: "\(node.getName()).Instanced_node"))
 				}
 			}else {fatalError("entity is not a node.")}
 		}
@@ -105,6 +105,9 @@ extension MeshComponent {
 		self.material.useMaterialColor = true
 		material.useTexture = false
 	}
+	public func setMaterialColor(r: Float, g: Float, b: Float){
+		setMaterialColor(simd_float4(r,g,b,1))
+	}
 	
 	public func setTexture(_ textureType: TextureLibrary.Types){
 		self.material.useTexture = true
@@ -126,6 +129,9 @@ extension MeshComponent {
 	public func setMaterialAmbient(_ ambient: Float) {
 		material.ambient = simd_float3(repeating: ambient)
 	}
+	public func setMaterialAmbient(_ r: Float, _ g: Float, _ b: Float){
+		setMaterialAmbient(simd_float3(r,g,b))
+	}
 	public func addMaterialAmbient(_ value: Float) {
 		material.ambient += value
 	}
@@ -138,6 +144,9 @@ extension MeshComponent {
 	}
 	public func setMaterialDiffuse(_ diffuse: Float) {
 		material.diffuse = simd_float3(repeating: diffuse)
+	}
+	public func setMaterialDiffues(_ r: Float, _ g: Float, _ b: Float){
+		setMaterialDiffuse(simd_float3(r, g, b))
 	}
 	public func addMaterialDiffuse(_ value: Float) {
 		material.diffuse += value
@@ -152,6 +161,9 @@ extension MeshComponent {
 	}
 	public func setMaterialSpecular(_ specular: Float) {
 		material.specular = simd_float3(repeating: specular)
+	}
+	public func setMaterialSpecular(_ r: Float, _ g: Float, _ b: Float){
+		setMaterialSpecular(simd_float3(r, g, b))
 	}
 	public func addMaterialSpecular(_ value: Float) {
 		material.specular += value

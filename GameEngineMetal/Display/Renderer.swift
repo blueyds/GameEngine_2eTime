@@ -18,15 +18,15 @@ class Renderer: NSObject, MTKViewDelegate {
 	let engine: Engine
 	let preferences: Preferences
 	var scenes: SceneManager
-
+	let gameTime: GameTime
 	
 	init (_ parent: GameView){
 		self.parent = parent
 		preferences = Preferences.shared
 		engine = Engine.shared
 		scenes = SceneManager.shared
+		gameTime = GameTime()
 		super.init()
-		
 	}
 	func updateScreenSize(view: MTKView){
 		Renderer.ScreenSize = simd_float2(Float(view.bounds.width),
@@ -38,8 +38,8 @@ class Renderer: NSObject, MTKViewDelegate {
 	}
 		
 	func draw(in view: MTKView) {
-		GameTime.UpdateTime()
-		scenes.updateScene(deltaTime: GameTime.DeltaTime)
+		gameTime.UpdateTime()
+		scenes.updateScene(deltaTime: gameTime.DeltaTime)
 		//guard let drawable = view.currentDrawable else { return}
 		if let drawable = view.currentDrawable,
 		   let commandBuffer = engine.commandQueue.makeCommandBuffer(),

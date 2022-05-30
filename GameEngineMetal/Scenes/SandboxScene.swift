@@ -5,66 +5,63 @@
 //  Created by Craig Nunemaker on 4/28/22.
 //
 
-import Foundation
-import simd
+
+
 class SandboxScene: GameScene {
     
-    var pointer = Node()
-    var cruiser = Node()
-	var leftSun = Node()
-	var middleSun = Node()
-	var rightSun = Node()
+	var pointer = Node(name: "Pointer")
+    var cruiser = Node(name: "Cruiser")
+	var leftSun = Node(name: "Left Sun")
+	var middleSun = Node(name: "Middle Sun")
+	var rightSun = Node(name: "Right Sun")
 	
 	
 	override func buildScene() {
-		pointer.setPosition(simd_float3(0,0,6))
-		addCameraComponent(toChild: pointer, cameraType: .Debug, zoom: 45, aspectRatio: 1, near: 0.1, far: 1000	)
+		pointer.setPosition(x: 0, y: 0, z: 6)
+		addCameraComponent(toChild: pointer, cameraType: .Debug, fov: 45, aspectRatio: 1, near: 0.1, far: 1000	)
 		pointer.addComponent(DebugCameraInputComponent())
 		addChild(pointer)
 		
 		
-		leftSun.setPosition(simd_float3(-2,3,1))
+		leftSun.setPosition(x: -1, y: 1, z: 0)
 		addMeshComponent(.Sphere, toChild: leftSun)
 		if let mesh = leftSun.component(ofType: MeshComponent.self) {
 			mesh.setMaterialIsLit(false)
-			mesh.setMaterialColor(simd_float4(1,0,0,1))
+			mesh.setMaterialColor(r: 1, g: 0, b: 0)
 		}
 		addLightComponent(toChild: leftSun)
 		if let light =  leftSun.component(ofType: LightComponent.self){
-			light.setLightColor(simd_float3(1,0,0))
+			light.setLightColor(r: 1, g: 0, b: 0)
 		}
-		leftSun.setName("Left Sun")
-		leftSun.setScale(0.5)
+		leftSun.setScale(0.2)
 		leftSun.addComponent(SunInputComponent(toggleKey: .a))
 		addChild(leftSun)
 		
-		middleSun.setPosition(simd_float3(0,3,0))
+		middleSun.setPosition(x: 0, y: 1, z: 0)
 		addMeshComponent(.Sphere, toChild: middleSun)
 		if let mesh = middleSun.component(ofType: MeshComponent.self) {
 			mesh.setMaterialIsLit(false)
-			mesh.setMaterialColor(simd_float4(1,1,1,1))
+			mesh.setMaterialColor(r: 1, g: 1, b: 1)
 		}
 		addLightComponent(toChild: middleSun)
 		if let light =  middleSun.component(ofType: LightComponent.self){
-			light.setLightColor(simd_float3(1,1,1))
+			light.setLightColor(r: 1, g: 1, b: 1)
 		}
-		middleSun.setName("Middle Sun")
-		middleSun.setScale(0.8)
+		middleSun.setScale(0.2)
 		middleSun.addComponent(SunInputComponent(toggleKey: .s))
 		addChild(middleSun)
 		
-		rightSun.setPosition(simd_float3(2,3,-1))
+		rightSun.setPosition(x: 1, y: 1, z: 0)
 		addMeshComponent(.Sphere, toChild: rightSun)
 		if let mesh = rightSun.component(ofType: MeshComponent.self) {
 			mesh.setMaterialIsLit(false)
-			mesh.setMaterialColor(simd_float4(0,0,1,1))
+			mesh.setMaterialColor(r: 0, g: 0, b: 1)
 		}
 		addLightComponent(toChild: rightSun)
 		if let light =  rightSun.component(ofType: LightComponent.self){
-			light.setLightColor(simd_float3(0,0,1))
+			light.setLightColor(r: 0, g: 0, b: 1)
 		}
-		rightSun.setName("Right Sun")
-		rightSun.setScale(0.5)
+		rightSun.setScale(0.2)
 		
 		rightSun.addComponent(SunInputComponent(toggleKey: .d))
 		addChild(rightSun)
@@ -74,7 +71,6 @@ class SandboxScene: GameScene {
 			mesh.setTexture(.Cruiser)
 //			mesh.setMaterialAmbient(0.01)
 		}
-		cruiser.setName("Cruiser")
 		cruiser.addComponent(CruiserInputComponent())
 		addChild(cruiser)
     }

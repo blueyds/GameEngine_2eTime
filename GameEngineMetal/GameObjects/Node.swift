@@ -8,7 +8,7 @@
 import MetalKit
 import GameplayKit
 class Node: GKEntity, Identifiable{
-	private var _name: String = "Node"
+	private var _name: String
 	let id = UUID()
 	
 	private var _position: simd_float3 = simd_float3(repeating: 0)
@@ -28,7 +28,7 @@ class Node: GKEntity, Identifiable{
 	}
 	var children: [Node] = []
 	
-	init(name: String = "Node"){
+	init(name: String){
 		self._name = name
 		super.init()
 	}
@@ -46,8 +46,8 @@ class Node: GKEntity, Identifiable{
 //			updateable.doUpdate(GameTime.DeltaTime)
 //		}
 		for child in children {
-			child.updateChildrenMatrix()
 			child.parentModelMatrix = self.modelMatrix
+			child.updateChildrenMatrix()
 		}
 	}
 	
@@ -64,6 +64,7 @@ extension Node {
 	func setPositionX(_ xPosition: Float) { self._position.x = xPosition }
 	func setPositionY(_ yPosition: Float) { self._position.y = yPosition }
 	func setPositionZ(_ zPosition: Float) { self._position.z = zPosition }
+	func setPosition(x: Float, y: Float, z: Float) { setPosition(simd_float3(x, y, z))}
 	func getPosition()->simd_float3 { return self._position }
 	func getPositionX()->Float { return self._position.x }
 	func getPositionY()->Float { return self._position.y }
@@ -75,6 +76,7 @@ extension Node {
 	
 	//Rotating
 	func setRotation(_ rotation: simd_float3) { self._rotation = rotation }
+	func setRotation(x: Float, y: Float, z: Float){setRotation(simd_float3(x, y, z))}
 	func setRotationX(_ xRotation: Float) { self._rotation.x = xRotation }
 	func setRotationY(_ yRotation: Float) { self._rotation.y = yRotation }
 	func setRotationZ(_ zRotation: Float) { self._rotation.z = zRotation }

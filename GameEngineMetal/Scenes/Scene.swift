@@ -28,8 +28,8 @@ class GameScene: Node {
 	}
 	
 	func buildScene(){	}
-	
-	func updateSceneConstants(){
+
+	func updateScene(deltaTime: TimeInterval) {
 		if let camera = _camera {
 			_sceneConstants.viewMatrix = camera.viewMatrix
 			_sceneConstants.projectionMatrix = camera.projectionMatrix
@@ -37,12 +37,8 @@ class GameScene: Node {
 				_sceneConstants.cameraPosition = node.getPosition()
 			}
 		}
-		_sceneConstants.totalGameTime = Float(GameTime.TotalGameTime)
-	
-	}
-	
-	func updateScene(deltaTime: TimeInterval) {
-		updateSceneConstants()
+		_sceneConstants.totalGameTime = Float(deltaTime)
+
 		updateChildrenMatrix()
 		_meshManager.updateAll(deltaTime: deltaTime)
 		_lightManager.updateAll(deltaTime: deltaTime)
@@ -96,8 +92,8 @@ extension GameScene {
 
 // camera extensions for the scene
 extension GameScene {
-	func addCameraComponent(toChild: Node,cameraType: CameraComponent.Types, zoom: Float, aspectRatio: Float, near: Float, far: Float){
-		let component = CameraComponent(cameraType: cameraType, zoom: zoom, aspectRatio: aspectRatio, near: near, far: far)
+	func addCameraComponent(toChild: Node,cameraType: CameraComponent.Types, fov: Float, aspectRatio: Float, near: Float, far: Float){
+		let component = CameraComponent(cameraType: cameraType, fov: fov, aspectRatio: aspectRatio, near: near, far: far)
 		toChild.addComponent(component)
 		if _camera != nil {
 			if let node = _camera?.entity as? Node {
