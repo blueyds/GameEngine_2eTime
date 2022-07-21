@@ -7,25 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D10E61D728123E7600EDC156 /* GameEngineMetalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E61D628123E7600EDC156 /* GameEngineMetalApp.swift */; };
 		D10E61D928123E7600EDC156 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E61D828123E7600EDC156 /* ContentView.swift */; };
-		D10E61DB28123E7B00EDC156 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D10E61DA28123E7B00EDC156 /* Assets.xcassets */; };
 		D10E61DE28123E7B00EDC156 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D10E61DD28123E7B00EDC156 /* Preview Assets.xcassets */; };
 		D10E61E928123E7B00EDC156 /* GameEngineMetalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E61E828123E7B00EDC156 /* GameEngineMetalTests.swift */; };
 		D10E61F328123E7B00EDC156 /* GameEngineMetalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E61F228123E7B00EDC156 /* GameEngineMetalUITests.swift */; };
 		D10E61F528123E7B00EDC156 /* GameEngineMetalUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E61F428123E7B00EDC156 /* GameEngineMetalUITestsLaunchTests.swift */; };
-		D10E62022812436A00EDC156 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E62012812436A00EDC156 /* GameView.swift */; };
-		D10E62042812484E00EDC156 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E62032812484E00EDC156 /* Renderer.swift */; };
 		D1219CE428372BBB00095148 /* cruiser.mtl in Resources */ = {isa = PBXBuildFile; fileRef = D1219CE328372BBB00095148 /* cruiser.mtl */; };
 		D12CE717282751A700969AC1 /* cruiser.obj in Resources */ = {isa = PBXBuildFile; fileRef = D12CE714282751A600969AC1 /* cruiser.obj */; };
 		D12CE719282751A700969AC1 /* cruiser.bmp in Resources */ = {isa = PBXBuildFile; fileRef = D12CE716282751A700969AC1 /* cruiser.bmp */; };
 		D12FB60B28398E19000C4894 /* sphere.mtl in Resources */ = {isa = PBXBuildFile; fileRef = D12FB60928398E19000C4894 /* sphere.mtl */; };
 		D12FB60C28398E19000C4894 /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = D12FB60A28398E19000C4894 /* sphere.obj */; };
-		D15B5E742842C9DF0095064E /* SunInputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15B5E732842C9DF0095064E /* SunInputComponent.swift */; };
 		D16C1E25281B55B700E58127 /* SandboxScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16C1E24281B55B700E58127 /* SandboxScene.swift */; };
-		D16C1E32281C2C6D00E58127 /* GameEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16C1E31281C2C6D00E58127 /* GameEventHandler.swift */; };
-		D1B0F9592887A49C00515D3D /* DebugCameraInputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B0F9582887A49C00515D3D /* DebugCameraInputComponent.swift */; };
-		D1D803AE283B264F009BF201 /* CruiserInputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D803AD283B264F009BF201 /* CruiserInputComponent.swift */; };
+		D1B0F9602888C10300515D3D /* SunInputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B0F95A2888C10300515D3D /* SunInputComponent.swift */; };
+		D1B0F9622888C10300515D3D /* DebugCameraInputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B0F95C2888C10300515D3D /* DebugCameraInputComponent.swift */; };
+		D1B0F9632888C10300515D3D /* CruiserInputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B0F95D2888C10300515D3D /* CruiserInputComponent.swift */; };
+		D1B0F9642888C10300515D3D /* GameEngineMetalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B0F95F2888C10300515D3D /* GameEngineMetalApp.swift */; };
+		D1B0F9672888C27200515D3D /* GameEngine in Frameworks */ = {isa = PBXBuildFile; productRef = D1B0F9662888C27200515D3D /* GameEngine */; };
+		D1B0F9692888C27600515D3D /* MetalView in Frameworks */ = {isa = PBXBuildFile; productRef = D1B0F9682888C27600515D3D /* MetalView */; };
 		D1FD1F922827333400F1BCF3 /* PartyPirateParot.png in Resources */ = {isa = PBXBuildFile; fileRef = D1FD1F912827333400F1BCF3 /* PartyPirateParot.png */; };
 /* End PBXBuildFile section */
 
@@ -48,30 +46,26 @@
 
 /* Begin PBXFileReference section */
 		D10E61D328123E7600EDC156 /* GameEngineMetal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameEngineMetal.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D10E61D628123E7600EDC156 /* GameEngineMetalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngineMetalApp.swift; sourceTree = "<group>"; };
 		D10E61D828123E7600EDC156 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		D10E61DA28123E7B00EDC156 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D10E61DD28123E7B00EDC156 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D10E61DF28123E7B00EDC156 /* GameEngineMetal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GameEngineMetal.entitlements; sourceTree = "<group>"; };
 		D10E61E428123E7B00EDC156 /* GameEngineMetalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameEngineMetalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D10E61E828123E7B00EDC156 /* GameEngineMetalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngineMetalTests.swift; sourceTree = "<group>"; };
 		D10E61EE28123E7B00EDC156 /* GameEngineMetalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameEngineMetalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D10E61F228123E7B00EDC156 /* GameEngineMetalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngineMetalUITests.swift; sourceTree = "<group>"; };
 		D10E61F428123E7B00EDC156 /* GameEngineMetalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngineMetalUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		D10E62012812436A00EDC156 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
-		D10E62032812484E00EDC156 /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		D1219CE328372BBB00095148 /* cruiser.mtl */ = {isa = PBXFileReference; lastKnownFileType = text; name = cruiser.mtl; path = GameEngineMetal/Resources/Cruiser/cruiser.mtl; sourceTree = SOURCE_ROOT; };
 		D12CE714282751A600969AC1 /* cruiser.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cruiser.obj; sourceTree = "<group>"; };
 		D12CE716282751A700969AC1 /* cruiser.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = cruiser.bmp; sourceTree = "<group>"; };
 		D12FB60928398E19000C4894 /* sphere.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.mtl; sourceTree = "<group>"; };
 		D12FB60A28398E19000C4894 /* sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
-		D15B5E732842C9DF0095064E /* SunInputComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunInputComponent.swift; sourceTree = "<group>"; };
 		D16C1E24281B55B700E58127 /* SandboxScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandboxScene.swift; sourceTree = "<group>"; };
-		D16C1E31281C2C6D00E58127 /* GameEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEventHandler.swift; sourceTree = "<group>"; };
 		D1B0F9562887A16400515D3D /* MetalView */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MetalView; path = ../../../../../Documents/src/MetalView; sourceTree = "<group>"; };
 		D1B0F9572887A1EA00515D3D /* GameEngine */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = GameEngine; path = ../../../../../Documents/src/GameEngine; sourceTree = "<group>"; };
-		D1B0F9582887A49C00515D3D /* DebugCameraInputComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DebugCameraInputComponent.swift; path = ../../../../../../../Documents/src/GameEngine/Sources/GameEngine/DebugCameraInputComponent.swift; sourceTree = "<group>"; };
-		D1D803AD283B264F009BF201 /* CruiserInputComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CruiserInputComponent.swift; sourceTree = "<group>"; };
+		D1B0F95A2888C10300515D3D /* SunInputComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SunInputComponent.swift; sourceTree = "<group>"; };
+		D1B0F95C2888C10300515D3D /* DebugCameraInputComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugCameraInputComponent.swift; sourceTree = "<group>"; };
+		D1B0F95D2888C10300515D3D /* CruiserInputComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CruiserInputComponent.swift; sourceTree = "<group>"; };
+		D1B0F95E2888C10300515D3D /* GameEngineMetal.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = GameEngineMetal.entitlements; sourceTree = "<group>"; };
+		D1B0F95F2888C10300515D3D /* GameEngineMetalApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameEngineMetalApp.swift; sourceTree = "<group>"; };
 		D1FD1F912827333400F1BCF3 /* PartyPirateParot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PartyPirateParot.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1B0F9672888C27200515D3D /* GameEngine in Frameworks */,
+				D1B0F9692888C27600515D3D /* MetalView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +104,7 @@
 				D10E61E728123E7B00EDC156 /* GameEngineMetalTests */,
 				D10E61F128123E7B00EDC156 /* GameEngineMetalUITests */,
 				D10E61D428123E7600EDC156 /* Products */,
+				D1B0F9652888C27200515D3D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 1;
@@ -125,12 +122,15 @@
 		D10E61D528123E7600EDC156 /* GameEngineMetal */ = {
 			isa = PBXGroup;
 			children = (
+				D1B0F95D2888C10300515D3D /* CruiserInputComponent.swift */,
+				D1B0F95C2888C10300515D3D /* DebugCameraInputComponent.swift */,
+				D1B0F95E2888C10300515D3D /* GameEngineMetal.entitlements */,
+				D1B0F95F2888C10300515D3D /* GameEngineMetalApp.swift */,
+				D1B0F95A2888C10300515D3D /* SunInputComponent.swift */,
 				D10E61D828123E7600EDC156 /* ContentView.swift */,
 				D16C1E24281B55B700E58127 /* SandboxScene.swift */,
-				D12FB60D28399432000C4894 /* Components */,
 				D1FD1F902827325000F1BCF3 /* Resources */,
 				D144F73628149F42009EBD0D /* Display */,
-				D144F730281462E1009EBD0D /* Other */,
 				D10E61DC28123E7B00EDC156 /* Preview Content */,
 			);
 			path = GameEngineMetal;
@@ -180,32 +180,9 @@
 			path = sphere;
 			sourceTree = "<group>";
 		};
-		D12FB60D28399432000C4894 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				D1B0F9582887A49C00515D3D /* DebugCameraInputComponent.swift */,
-				D1D803AD283B264F009BF201 /* CruiserInputComponent.swift */,
-				D15B5E732842C9DF0095064E /* SunInputComponent.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		D144F730281462E1009EBD0D /* Other */ = {
-			isa = PBXGroup;
-			children = (
-				D10E61DA28123E7B00EDC156 /* Assets.xcassets */,
-				D10E61DF28123E7B00EDC156 /* GameEngineMetal.entitlements */,
-				D10E61D628123E7600EDC156 /* GameEngineMetalApp.swift */,
-			);
-			path = Other;
-			sourceTree = "<group>";
-		};
 		D144F73628149F42009EBD0D /* Display */ = {
 			isa = PBXGroup;
 			children = (
-				D10E62012812436A00EDC156 /* GameView.swift */,
-				D10E62032812484E00EDC156 /* Renderer.swift */,
-				D16C1E31281C2C6D00E58127 /* GameEventHandler.swift */,
 			);
 			path = Display;
 			sourceTree = "<group>";
@@ -217,6 +194,13 @@
 				D1B0F9572887A1EA00515D3D /* GameEngine */,
 			);
 			name = Packages;
+			sourceTree = "<group>";
+		};
+		D1B0F9652888C27200515D3D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D1FD1F902827325000F1BCF3 /* Resources */ = {
@@ -245,6 +229,10 @@
 			dependencies = (
 			);
 			name = GameEngineMetal;
+			packageProductDependencies = (
+				D1B0F9662888C27200515D3D /* GameEngine */,
+				D1B0F9682888C27600515D3D /* MetalView */,
+			);
 			productName = GameEngineMetal;
 			productReference = D10E61D328123E7600EDC156 /* GameEngineMetal.app */;
 			productType = "com.apple.product-type.application";
@@ -337,7 +325,6 @@
 				D10E61DE28123E7B00EDC156 /* Preview Assets.xcassets in Resources */,
 				D12FB60C28398E19000C4894 /* sphere.obj in Resources */,
 				D12CE717282751A700969AC1 /* cruiser.obj in Resources */,
-				D10E61DB28123E7B00EDC156 /* Assets.xcassets in Resources */,
 				D1FD1F922827333400F1BCF3 /* PartyPirateParot.png in Resources */,
 				D12CE719282751A700969AC1 /* cruiser.bmp in Resources */,
 				D1219CE428372BBB00095148 /* cruiser.mtl in Resources */,
@@ -365,15 +352,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D10E62022812436A00EDC156 /* GameView.swift in Sources */,
-				D1D803AE283B264F009BF201 /* CruiserInputComponent.swift in Sources */,
-				D10E62042812484E00EDC156 /* Renderer.swift in Sources */,
+				D1B0F9622888C10300515D3D /* DebugCameraInputComponent.swift in Sources */,
+				D1B0F9602888C10300515D3D /* SunInputComponent.swift in Sources */,
+				D1B0F9642888C10300515D3D /* GameEngineMetalApp.swift in Sources */,
 				D10E61D928123E7600EDC156 /* ContentView.swift in Sources */,
-				D15B5E742842C9DF0095064E /* SunInputComponent.swift in Sources */,
-				D10E61D728123E7600EDC156 /* GameEngineMetalApp.swift in Sources */,
-				D16C1E32281C2C6D00E58127 /* GameEventHandler.swift in Sources */,
+				D1B0F9632888C10300515D3D /* CruiserInputComponent.swift in Sources */,
 				D16C1E25281B55B700E58127 /* SandboxScene.swift in Sources */,
-				D1B0F9592887A49C00515D3D /* DebugCameraInputComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,12 +512,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = GameEngineMetal/Other/GameEngineMetal.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "GameEngineMetal/Preview\\ Content GameEngineMetal/Other";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = YNB2RNANFB;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -556,12 +540,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = GameEngineMetal/Other/GameEngineMetal.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "GameEngineMetal/Preview\\ Content GameEngineMetal/Other";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = YNB2RNANFB;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -692,6 +676,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D1B0F9662888C27200515D3D /* GameEngine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GameEngine;
+		};
+		D1B0F9682888C27600515D3D /* MetalView */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MetalView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D10E61CB28123E7600EDC156 /* Project object */;
 }

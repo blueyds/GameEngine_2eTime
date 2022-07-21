@@ -7,6 +7,7 @@
 
 import MetalKit
 import GameplayKit
+import GameEngine
 
 class DebugCameraInputComponent: GKComponent{
 	override func update(deltaTime: TimeInterval) {

@@ -6,18 +6,12 @@
 //
 
 import SwiftUI
-
+import GameEngine
 @main
 struct GameEngineMetalApp: App {
-	let preference: Preferences
-	let engine: Engine
-	let scenes: SceneManager
-	init(){
-		preference = Preferences.shared
-		engine = Engine.shared
-		scenes = SceneManager.shared
-		scenes.setScene(preference.startingSceneType)
-	}
+	let preference: Preferences = Preferences.shared
+	let engine: Engine = Engine.shared
+	//let scenes: SceneManager
 	
     var body: some Scene {
         WindowGroup {

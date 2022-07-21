@@ -5,7 +5,7 @@
 //  Created by Craig Nunemaker on 4/28/22.
 //
 
-
+import GameEngine
 
 class SandboxScene: GameScene {
     
@@ -17,9 +17,8 @@ class SandboxScene: GameScene {
 	
 	
 	override func buildScene() {
-		pointer.setPosition(x: 0, y: 0, z: 6)
+		pointer.setPosition(x: 0, y: 0, z: 50)
 		addCameraComponent(toChild: pointer, cameraType: .Debug, fov: 45, aspectRatio: 1, near: 0.1, far: 1000	)
-		pointer.addComponent(DebugCameraInputComponent())
 		addChild(pointer)
 		
 		

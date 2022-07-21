@@ -6,6 +6,7 @@
 //
 import MetalKit
 import GameplayKit
+import GameEngine
 
 class SunInputComponent: GKComponent{
 	let toggleKey: Keyboard.KeyCodes
