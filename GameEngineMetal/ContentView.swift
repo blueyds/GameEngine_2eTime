@@ -11,14 +11,14 @@ import GameEngine
 
 struct ContentView: View {
 	let gameTime = GameTime()
-	let engine = Engine.shared
+	let engine = MetalEngine.shared
 	let pref = Preferences.shared
 	let scene = SandboxScene()
     var body: some View {
 		MetalView(device: engine.device, drawingMode: .Timed, clearColor: pref.clearColor, colorPixelFormat: pref.mainPixelFormat, depthPixelFormat: pref.mainDepthPixelFormat)
 			.onDraw(){ drawable, renderPassDescriptor, bounds in
 				gameTime.UpdateTime()
-				scene.update(deltaTime: gameTime.DeltaTime)
+				scene.updateScene(deltaTime: gameTime.DeltaTime)
 				//guard let drawable = view.currentDrawable else { return}
 				if let commandBuffer = engine.commandQueue.makeCommandBuffer(),
 				   let renderCommandEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: renderPassDescriptor){

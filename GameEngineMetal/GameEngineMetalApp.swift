@@ -10,7 +10,7 @@ import GameEngine
 @main
 struct GameEngineMetalApp: App {
 	let preference: Preferences = Preferences.shared
-	let engine: Engine = Engine.shared
+	let engine: MetalEngine = MetalEngine.shared
 	//let scenes: SceneManager
 	
     var body: some Scene {

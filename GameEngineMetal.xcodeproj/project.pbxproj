@@ -17,6 +17,11 @@
 		D12CE719282751A700969AC1 /* cruiser.bmp in Resources */ = {isa = PBXBuildFile; fileRef = D12CE716282751A700969AC1 /* cruiser.bmp */; };
 		D12FB60B28398E19000C4894 /* sphere.mtl in Resources */ = {isa = PBXBuildFile; fileRef = D12FB60928398E19000C4894 /* sphere.mtl */; };
 		D12FB60C28398E19000C4894 /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = D12FB60A28398E19000C4894 /* sphere.obj */; };
+		D14D44E1288B60F8007210A9 /* Meshes.plist in Resources */ = {isa = PBXBuildFile; fileRef = D14D44E0288B60F8007210A9 /* Meshes.plist */; };
+		D14D44E3288B61F1007210A9 /* cruiser.plist in Resources */ = {isa = PBXBuildFile; fileRef = D14D44E2288B61F1007210A9 /* cruiser.plist */; };
+		D14D44E5288B6503007210A9 /* Cruuiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14D44E4288B6503007210A9 /* Cruuiser.swift */; };
+		D14D44E7288B835B007210A9 /* Sun.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14D44E6288B835B007210A9 /* Sun.swift */; };
+		D14D44E9288B8580007210A9 /* Pointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14D44E8288B8580007210A9 /* Pointer.swift */; };
 		D16C1E25281B55B700E58127 /* SandboxScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16C1E24281B55B700E58127 /* SandboxScene.swift */; };
 		D1B0F9602888C10300515D3D /* SunInputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B0F95A2888C10300515D3D /* SunInputComponent.swift */; };
 		D1B0F9622888C10300515D3D /* DebugCameraInputComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B0F95C2888C10300515D3D /* DebugCameraInputComponent.swift */; };
@@ -58,6 +63,11 @@
 		D12CE716282751A700969AC1 /* cruiser.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = cruiser.bmp; sourceTree = "<group>"; };
 		D12FB60928398E19000C4894 /* sphere.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.mtl; sourceTree = "<group>"; };
 		D12FB60A28398E19000C4894 /* sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
+		D14D44E0288B60F8007210A9 /* Meshes.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Meshes.plist; sourceTree = "<group>"; };
+		D14D44E2288B61F1007210A9 /* cruiser.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = cruiser.plist; sourceTree = "<group>"; };
+		D14D44E4288B6503007210A9 /* Cruuiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cruuiser.swift; sourceTree = "<group>"; };
+		D14D44E6288B835B007210A9 /* Sun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sun.swift; sourceTree = "<group>"; };
+		D14D44E8288B8580007210A9 /* Pointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pointer.swift; sourceTree = "<group>"; };
 		D16C1E24281B55B700E58127 /* SandboxScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandboxScene.swift; sourceTree = "<group>"; };
 		D1B0F9562887A16400515D3D /* MetalView */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MetalView; path = ../../../../../Documents/src/MetalView; sourceTree = "<group>"; };
 		D1B0F9572887A1EA00515D3D /* GameEngine */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = GameEngine; path = ../../../../../Documents/src/GameEngine; sourceTree = "<group>"; };
@@ -122,6 +132,7 @@
 		D10E61D528123E7600EDC156 /* GameEngineMetal */ = {
 			isa = PBXGroup;
 			children = (
+				D14D44E4288B6503007210A9 /* Cruuiser.swift */,
 				D1B0F95D2888C10300515D3D /* CruiserInputComponent.swift */,
 				D1B0F95C2888C10300515D3D /* DebugCameraInputComponent.swift */,
 				D1B0F95E2888C10300515D3D /* GameEngineMetal.entitlements */,
@@ -132,6 +143,8 @@
 				D1FD1F902827325000F1BCF3 /* Resources */,
 				D144F73628149F42009EBD0D /* Display */,
 				D10E61DC28123E7B00EDC156 /* Preview Content */,
+				D14D44E6288B835B007210A9 /* Sun.swift */,
+				D14D44E8288B8580007210A9 /* Pointer.swift */,
 			);
 			path = GameEngineMetal;
 			sourceTree = "<group>";
@@ -209,6 +222,8 @@
 				D12FB60428398BB1000C4894 /* sphere */,
 				D12CE7132827511D00969AC1 /* cruiser */,
 				D1FD1F912827333400F1BCF3 /* PartyPirateParot.png */,
+				D14D44E0288B60F8007210A9 /* Meshes.plist */,
+				D14D44E2288B61F1007210A9 /* cruiser.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -324,10 +339,12 @@
 				D12FB60B28398E19000C4894 /* sphere.mtl in Resources */,
 				D10E61DE28123E7B00EDC156 /* Preview Assets.xcassets in Resources */,
 				D12FB60C28398E19000C4894 /* sphere.obj in Resources */,
+				D14D44E1288B60F8007210A9 /* Meshes.plist in Resources */,
 				D12CE717282751A700969AC1 /* cruiser.obj in Resources */,
 				D1FD1F922827333400F1BCF3 /* PartyPirateParot.png in Resources */,
 				D12CE719282751A700969AC1 /* cruiser.bmp in Resources */,
 				D1219CE428372BBB00095148 /* cruiser.mtl in Resources */,
+				D14D44E3288B61F1007210A9 /* cruiser.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,12 +369,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D14D44E5288B6503007210A9 /* Cruuiser.swift in Sources */,
 				D1B0F9622888C10300515D3D /* DebugCameraInputComponent.swift in Sources */,
+				D14D44E7288B835B007210A9 /* Sun.swift in Sources */,
 				D1B0F9602888C10300515D3D /* SunInputComponent.swift in Sources */,
 				D1B0F9642888C10300515D3D /* GameEngineMetalApp.swift in Sources */,
 				D10E61D928123E7600EDC156 /* ContentView.swift in Sources */,
 				D1B0F9632888C10300515D3D /* CruiserInputComponent.swift in Sources */,
 				D16C1E25281B55B700E58127 /* SandboxScene.swift in Sources */,
+				D14D44E9288B8580007210A9 /* Pointer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
